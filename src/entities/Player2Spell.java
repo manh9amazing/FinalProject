@@ -27,7 +27,7 @@ public class Player2Spell extends GameObject {
 
         if (this.position.x<=0 || this.position.x >=800){
             this.position.x = SpellClampX.clampX(this.position.x);
-            this.position.y = 700 - this.position.y;
+            this.position.y = 700 -30- this.position.y;
             this.ExistX--;
         }
         if (this.position.y <=0 || (this.position.y >=340 && this.position.y <=360) || this.position.y >=700 ){
@@ -51,11 +51,7 @@ public class Player2Spell extends GameObject {
         }
         super.run();
     }
-    //    public void run(){
-//        this.deActiveIfNeeded();
 
-//        super.run();
-//    }
     public void deActiveIfNeeded() {
         if (this.ExistX == 0 || this.ExistY == 0) {
             this.deActive();
