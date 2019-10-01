@@ -11,6 +11,7 @@ public class BuffAvailable {
         this.buffTime = false;
     }
 
+
     public static BuffAvailable getInstance(){
         //static ko this
         return INSTANCE;
