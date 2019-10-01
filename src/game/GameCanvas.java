@@ -124,5 +124,6 @@ public class GameCanvas extends JPanel {
             g.setColor(Color.GREEN);
             g.drawString("BUFF: GIVING", 930, 330);
         }
+
     }
 }
