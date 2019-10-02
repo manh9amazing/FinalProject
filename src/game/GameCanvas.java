@@ -110,11 +110,14 @@ public class GameCanvas extends JPanel {
         g.fillRect(800,0,400,340);
         g.setColor(Color.red);
         g.drawString("Player 1", 800,20);
+        g.setColor(Color.cyan);
+        g.drawString("3 Nearest Buff",800,170);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(800,340,400,350);
-
         g.setColor(Color.red);
         g.drawString("Player 2", 800,370);
+        g.setColor(Color.black);
+        g.drawString("3 Nearest Buff",800,520);
         GameObject.renderALL(g);
         if(BuffAvailable.getInstance().buffTime == false) {
             g.setColor(Color.PINK);
@@ -124,6 +127,8 @@ public class GameCanvas extends JPanel {
             g.setColor(Color.GREEN);
             g.drawString("BUFF: GIVING", 930, 330);
         }
+
+
 //test git commit
     }
 }

@@ -38,13 +38,18 @@ public class Player2Spell extends GameObject {
         this.deActiveIfNeeded();
         Player1 player1 = GameObject.checkCollider(this, Player1.class);
         if (player1 != null ){
-            if (player1.Armor<=0){
-                player1.HP-= this.Spell2ATK;
+            if(!BuffToggleP2.getInstance().PiercingSpell) {
+                if (player1.Armor <= 0) {
+                    player1.HP -= this.Spell2ATK;
+                } else {
+                    player1.Armor -= this.Spell2ATK;
+                }
+                this.deActive();
             }
             else{
-            player1.Armor-= this.Spell2ATK;
+                player1.HP-= this.Spell2ATK;
+                this.deActive();
             }
-            this.deActive();
         }
         else{
 //            System.out.println("ko phat hien");

@@ -1,6 +1,6 @@
 package entities;
 
-public class BuffToggle {
+public class BuffToggleP2 {
     public int BuffNumber;
 
     public boolean Frozen;
@@ -9,9 +9,9 @@ public class BuffToggle {
     public boolean PiercingSpell;
     public boolean Excaliburn;
 
-    private static final BuffToggle INSTANCE = new BuffToggle();
+    private static final BuffToggleP2 INSTANCE = new BuffToggleP2();
 
-    private BuffToggle(){
+    private BuffToggleP2(){
         this.BuffNumber = 5;
 
         this.Frozen = false;
@@ -21,9 +21,8 @@ public class BuffToggle {
         this.Excaliburn = false;
     }
 
-    public static BuffToggle getInstance(){
+    public static BuffToggleP2 getInstance(){
         //static ko this
         return INSTANCE;
-
     }
 }

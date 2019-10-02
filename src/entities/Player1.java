@@ -47,52 +47,54 @@ public class Player1 extends GameObject {
     }
     @Override
     public void run() {
-        float vx=0 , vy=0;
-        if (KeyPressed.getInstance().upPressed){
-            vy-=5;
-            faceDir = 0;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/8.png");
-        }
-        if (KeyPressed.getInstance().downPressed){
-            vy+=5;
-            faceDir = 1;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/9.png");
-        }
-        if (KeyPressed.getInstance().rightPressed){
-            vx+=5;
-            faceDir = 2;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/10.png");
-        }
-        if (KeyPressed.getInstance().leftPressed){
-            vx-=5;
-            faceDir = 3;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/11.png");
+        this.EventActivator();
+        this.BuffActivator();
+        if (!BuffToggle.getInstance().Frozen) {
+            float vx = 0, vy = 0;
+            if (KeyPressed.getInstance().upPressed) {
+                vy -= 5;
+                faceDir = 0;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/8.png");
+            }
+            if (KeyPressed.getInstance().downPressed) {
+                vy += 5;
+                faceDir = 1;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/9.png");
+            }
+            if (KeyPressed.getInstance().rightPressed) {
+                vx += 5;
+                faceDir = 2;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/10.png");
+            }
+            if (KeyPressed.getInstance().leftPressed) {
+                vx -= 5;
+                faceDir = 3;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/11.png");
+            }
+
+            if (this.Ammo > 0) {
+                if (KeyPressed.getInstance().spacePressed && frameCounter.expired) {
+                    this.castSpell();
+                    this.Ammo--;
+                    frameCounter.reset();
+                } else {
+                    frameCounter.run();
+                }
+            } else {
+                if (reload.expired) {
+                    this.Ammo = this.MaxAmmo;
+                    reload.reset();
+                } else {
+                    reload.run();
+                    frameCounter.run();
+                }
+            }
+            this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
+            this.position.y = Utils.clamp(this.position.y, 0, 270);
+            this.velocity.set(vx, vy);
+            super.run();
         }
 
-        if (this.Ammo>0) {
-            if (KeyPressed.getInstance().spacePressed && frameCounter.expired) {
-                this.castSpell();
-                this.Ammo--;
-                frameCounter.reset();
-            } else {
-                frameCounter.run();
-            }
-        }
-        else {
-            if (reload.expired){
-                this.Ammo = this.MaxAmmo;
-                reload.reset();
-            }
-            else {
-                reload.run();
-                frameCounter.run();
-            }
-        }
-        this.position.x = Utils.clamp(this.position.x,0,800-this.image.getWidth(null));
-        this.position.y = Utils.clamp(this.position.y,0,270);
-        this.velocity.set(vx,vy);
-        this.BuffActivator();
-        super.run();
     }
 
     private void castSpell() {

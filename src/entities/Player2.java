@@ -48,50 +48,52 @@ public class Player2 extends GameObject {
     }
     @Override
     public void run() {
-        float vx=0 , vy=0;
-        if (KeyPressed.getInstance().wPressed){
-            vy-=5;
-            faceDir = 0;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
-        }
-        if (KeyPressed.getInstance().sPressed){
-            vy+=5;
-            faceDir = 1;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/13.png");
-        }
-        if (KeyPressed.getInstance().dPressed){
-            vx+=5;
-            faceDir = 2;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/14.png");
-        }
-        if (KeyPressed.getInstance().aPressed){
-            vx-=5;
-            faceDir = 3;
-            this.image = SpriteUtils.loadImage("assets/images/players/straight/15.png");
-        }
-        if (this.Ammo>0) {
-            if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {
-                this.castSpell();
-                this.Ammo--;
-                frameCounter.reset();
+        this.EventActivator();
+        this.BuffActivatorP2();
+        if(!BuffToggleP2.getInstance().Frozen) {
+            float vx = 0, vy = 0;
+            if (KeyPressed.getInstance().wPressed) {
+                vy -= 5;
+                faceDir = 0;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
+            }
+            if (KeyPressed.getInstance().sPressed) {
+                vy += 5;
+                faceDir = 1;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/13.png");
+            }
+            if (KeyPressed.getInstance().dPressed) {
+                vx += 5;
+                faceDir = 2;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/14.png");
+            }
+            if (KeyPressed.getInstance().aPressed) {
+                vx -= 5;
+                faceDir = 3;
+                this.image = SpriteUtils.loadImage("assets/images/players/straight/15.png");
+            }
+            if (this.Ammo > 0) {
+                if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {
+                    this.castSpell();
+                    this.Ammo--;
+                    frameCounter.reset();
+                } else {
+                    frameCounter.run();
+                }
             } else {
-                frameCounter.run();
+                if (reload.expired) {
+                    this.Ammo = this.MaxAmmo;
+                    reload.reset();
+                } else {
+                    reload.run();
+                    frameCounter.run();
+                }
             }
+            this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
+            this.position.y = Utils.clamp(this.position.y, 370, 610);
+            this.velocity.set(vx, vy);
+            super.run();
         }
-        else {
-            if (reload.expired){
-                this.Ammo = this.MaxAmmo;
-                reload.reset();
-            }
-            else {
-                reload.run();
-                frameCounter.run();
-            }
-        }
-        this.position.x = Utils.clamp(this.position.x,0,800-this.image.getWidth(null));
-        this.position.y = Utils.clamp(this.position.y,370,610);
-        this.velocity.set(vx,vy);
-        super.run();
     }
 
     private void castSpell() {
