@@ -13,7 +13,7 @@ public class Player2 extends GameObject {
         this.Ammo = 7;
         this.MaxAmmo =10;
         this.Armor = 9;
-        this.ATK = 100;
+//        this.ATK = 100;
         this.MaxHP =30;
         this.HP = 30;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
@@ -28,9 +28,15 @@ public class Player2 extends GameObject {
         g.setColor(Color.RED);
         g.drawString("HP: " + this.HP + " / "+ this.MaxHP, 820, 400 );
         g.setColor(Color.RED);
-        g.drawString("ATK: " + entities.Player1Spell.ATK, 820, 430 );
-        g.setColor(Color.YELLOW);
-        g.drawString("ARMOR: " + this.Armor, 820, 460 );
+        g.drawString("ATK: " + Player1Spell.Spell2ATK, 820, 430 );
+        if (this.Armor > 0) {
+            g.setColor(Color.YELLOW);
+            g.drawString("ARMOR: " + this.Armor, 820, 460 );
+        }
+        else{
+            g.setColor(Color.YELLOW);
+            g.drawString("ARMOR: BROKEN" , 820, 460 );
+        }
         if (this.Ammo>0){
             g.setColor(Color.BLUE);
             g.drawString("AMMO: " + this.Ammo + " / "+ this.MaxAmmo, 820, 490 );}

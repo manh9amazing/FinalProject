@@ -8,7 +8,7 @@ public class Player1Spell extends GameObject {
     public Player1Spell() {
         this.ExistX = 2;
         this.ExistY = 2;
-        this.ATK = 1;
+        this.Spell1ATK = 1;
         this.image = SpriteUtils.loadImage("assets/images/enemies/bullets/blue.png");
         this.position = new Vector2D();
         this.velocity.set(0, -20);
@@ -19,7 +19,7 @@ public class Player1Spell extends GameObject {
     public void render(Graphics g) {
         super.render(g);
 //        g.setColor(Color.RED);
-//        g.drawString("ATK: " + this.ATK, 820, 80 );
+//        g.drawString("ATK: " + this.Spell1ATK, 820, 80 );
     }
 
     @Override
@@ -38,11 +38,11 @@ public class Player1Spell extends GameObject {
         this.deActiveIfNeeded();
         Player2 player2 = GameObject.checkCollider(this, Player2.class);
         if (player2 != null ){
-            if (player2.Armor==0){
-                player2.HP--;
+            if (player2.Armor<=0){
+                player2.HP-= this.Spell1ATK;
             }
             else{
-                player2.Armor--;
+                player2.Armor-= this.Spell1ATK;
             }
             this.deActive();
         }

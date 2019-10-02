@@ -12,7 +12,7 @@ public class Player1 extends GameObject {
         this.ReloadTime =100;
         this.Ammo = 6;
         this.MaxAmmo = 8;
-        this.ATK = 100;
+//        this.ATK = 100;
         this.MaxHP =30;
         this.HP = 25;
         this.Armor = 5;
@@ -28,9 +28,14 @@ public class Player1 extends GameObject {
         g.setColor(Color.RED);
         g.drawString("HP: " + this.HP + " / "+ this.MaxHP, 820, 50 );
         g.setColor(Color.RED);
-        g.drawString("ATK: " + Player1Spell.ATK, 820, 80 );
-        g.setColor(Color.YELLOW);
-        g.drawString("ARMOR: " + this.Armor, 820, 110 );
+        g.drawString("ATK: " + Player1Spell.Spell1ATK, 820, 80 );
+        if(this.Armor>0){
+            g.setColor(Color.YELLOW);
+        g.drawString("ARMOR: " + this.Armor, 820, 110 );}
+        else {
+            g.setColor(Color.YELLOW);
+            g.drawString("ARMOR: BROKEN", 820,110 );
+        }
         if (this.Ammo>0){
         g.setColor(Color.BLUE);
         g.drawString("AMMO: " + this.Ammo + " / "+ this.MaxAmmo, 820, 140 );}

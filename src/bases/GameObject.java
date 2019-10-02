@@ -111,7 +111,8 @@ public class GameObject {
     public int ExistY;
     public int HP;
     public int MaxHP;
-    public static int ATK;
+    public  static int Spell1ATK;
+    public static int Spell2ATK;
     public int Armor;
     public  int Ammo;
     public int MaxAmmo;
