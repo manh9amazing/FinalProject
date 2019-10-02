@@ -3,6 +3,8 @@ package bases;
 
 
 import entities.BuffAvailable;
+import entities.BuffRandomize;
+import entities.BuffToggle;
 
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
@@ -26,8 +28,6 @@ public class GameObject {
             if( gameObject.isActive) {
                 gameObject.render(g);
             }
-
-
         }
     }
 
@@ -38,7 +38,16 @@ public class GameObject {
                 gameObject.run();
             }
         }
-        System.out.println(gameObjects.size());
+
+//        System.out.println(gameObjects.size());
+        if (BuffAvailable.getInstance().buffTime==true && !BuffAvailable.getInstance().buffActivated){
+            BuffRandomize buffRandomize = new BuffRandomize();
+            buffRandomize.run();
+            BuffAvailable.getInstance().buffActivated = true;
+        }
+        if(! BuffAvailable.getInstance().buffTime){
+            BuffAvailable.getInstance().buffActivated = false;
+        }
     }
 
 
@@ -83,8 +92,6 @@ public class GameObject {
         for (int i = 0 ; i < gameObjects.size(); i++){
             GameObject gameObject = gameObjects.get(i);
             if (!gameObject.isActive && cls.isAssignableFrom(gameObject.getClass())){
-
-                //cach 2 de so sanh cls va gameObject.getClass()
                 return (E) gameObject;
             }
 
@@ -101,7 +108,8 @@ public class GameObject {
         }
         return null;
     }
-    public  Image image;
+
+    public Image image;
     public Vector2D position;
     public Vector2D velocity;
     public BoxCollider boxCollider;
@@ -111,13 +119,12 @@ public class GameObject {
     public int ExistY;
     public int HP;
     public int MaxHP;
-    public  static int Spell1ATK;
+    public static int Spell1ATK;
     public static int Spell2ATK;
     public int Armor;
-    public  int Ammo;
+    public int Ammo;
     public int MaxAmmo;
     public int ReloadTime;
-
 
 
     public GameObject(){
@@ -146,6 +153,22 @@ public class GameObject {
         //va reset HP neu co
     }
 
+
+    public void BuffActivator() {
+        if(BuffToggle.getInstance().InstantHeal){
+            this.HP += 10;
+            if(this.HP > this.MaxHP){
+                this.HP = this.MaxHP;
+            }
+            if (BuffToggle.getInstance().Poisoned){
+                this.HP--;
+            }
+            BuffToggle.getInstance().InstantHeal = false;
+        }
+        if (BuffToggle.getInstance().Poisoned){
+            this.HP--;
+        }
+    }
 
 
 }

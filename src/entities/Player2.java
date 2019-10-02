@@ -15,7 +15,7 @@ public class Player2 extends GameObject {
         this.Armor = 9;
 //        this.ATK = 100;
         this.MaxHP =30;
-        this.HP = 30;
+        this.HP = 10;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
         this.position = new Vector2D(500,500);
         this.boxCollider = new BoxCollider(this, 50, 50);

@@ -14,7 +14,7 @@ public class Player1 extends GameObject {
         this.MaxAmmo = 8;
 //        this.ATK = 100;
         this.MaxHP =30;
-        this.HP = 25;
+        this.HP = 15;
         this.Armor = 5;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/8.png");
         this.position = new Vector2D(200,200);
@@ -91,6 +91,7 @@ public class Player1 extends GameObject {
         this.position.x = Utils.clamp(this.position.x,0,800-this.image.getWidth(null));
         this.position.y = Utils.clamp(this.position.y,0,270);
         this.velocity.set(vx,vy);
+        this.BuffActivator();
         super.run();
     }
 
