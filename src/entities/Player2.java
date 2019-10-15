@@ -34,6 +34,7 @@ public class Player2 extends GameObject {
             g.drawString("ARMOR: " + this.Armor, 820, 460 );
         }
         else{
+            this.Armor =0;
             g.setColor(Color.YELLOW);
             g.drawString("ARMOR: BROKEN" , 820, 460 );
         }
@@ -48,9 +49,10 @@ public class Player2 extends GameObject {
     }
     @Override
     public void run() {
+//        this.checkTroll();
         this.EventActivator();
         this.BuffActivatorP2();
-        if(!BuffToggleP2.getInstance().Frozen) {
+        if(!BuffToggleP2.getInstance().Frozen && !EventToggle.getInstance().Troll) {
             float vx = 0, vy = 0;
             if (KeyPressed.getInstance().wPressed) {
                 vy -= 5;
@@ -89,9 +91,16 @@ public class Player2 extends GameObject {
                     frameCounter.run();
                 }
             }
-            this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
-            this.position.y = Utils.clamp(this.position.y, 370, 610);
+            if(MapState.getInstance().MapReverse){
+                this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
+                this.position.y = Utils.clamp(this.position.y, 0, 270);
+            }
+            else {
+                this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
+                this.position.y = Utils.clamp(this.position.y, 370, 610);
+            }
             this.velocity.set(vx, vy);
+//            System.out.println("AAAAAAAAAAAAAAAA "+  this.Armor);
             super.run();
         }
     }

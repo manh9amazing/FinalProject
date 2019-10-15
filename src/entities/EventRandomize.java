@@ -9,7 +9,7 @@ public class EventRandomize {
     public void run(){
         Random randomMachine = new Random();
         EventChosen = randomMachine.nextInt(EventToggle.getInstance().EventNumber);
-        EventChosen = 1;
+        EventChosen = 0;
 //        System.out.println(EventChosen);
         if(EventChosen ==0){
            EventToggle.getInstance().Troll = true;
@@ -22,6 +22,12 @@ public class EventRandomize {
         if(EventChosen==2){
             EventToggle.getInstance().StandTogether = true;
             GameObject.eventLogs.add("StandTogether STARTING...");
+        }
+        if(EventChosen==3){
+            EventToggle.getInstance().WorldExchange = true;
+            MapState.getInstance().MapReverse = !MapState.getInstance().MapReverse;
+            EventToggle.getInstance().WorldExchangeSubCnt = 0;
+            GameObject.eventLogs.add("WorldExchange...");
         }
 
     }

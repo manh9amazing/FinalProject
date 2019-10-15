@@ -24,12 +24,22 @@ public class Player1Spell extends GameObject {
 
     @Override
     public void run() {
-
-        if (this.position.x<=0 || this.position.x >=800){
-            this.position.x = SpellClampX.clampX(this.position.x);
-            this.position.y = 700 - this.position.y;
-            this.ExistX--;
+        if (MapState.getInstance().MapReverse){
+            if (this.position.x<=0 || this.position.x >=800){
+                this.position.x = SpellClampX.clampX(this.position.x);
+                this.position.y = 700 -30- this.position.y;
+                this.ExistX--;
+            }
         }
+        else {
+            if (this.position.x <= 0 || this.position.x >= 800) {
+                this.position.x = SpellClampX.clampX(this.position.x);
+                this.position.y = 700 - this.position.y;
+                this.ExistX--;
+            }
+        }
+
+
         if (this.position.y <=0 || (this.position.y >=340 && this.position.y <=360) || this.position.y >=700 ){
             this.position.y = SpellClampY.clampY(this.position.y);
             this.velocity = ReverseMethod.reverse(this.velocity);
@@ -43,6 +53,7 @@ public class Player1Spell extends GameObject {
                     player2.HP -= this.Spell1ATK;
                 } else {
                     player2.Armor -= this.Spell1ATK;
+
                 }
                 this.deActive();
             }

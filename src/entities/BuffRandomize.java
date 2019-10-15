@@ -6,30 +6,55 @@ import java.util.Random;
 
 public class BuffRandomize {
     int BuffChosen;
-    public void run(){
+    public void run() {
         Random randomMachine = new Random();
         BuffChosen = randomMachine.nextInt(BuffToggle.getInstance().BuffNumber);
-//        BuffChosen = 4;
+        BuffChosen = 1;
 //        System.out.println(BuffChosen);
-        if(BuffChosen ==0){
+        if (BuffChosen == 0) {
             BuffToggle.getInstance().Poisoned = true;
             GameObject.player1Statuses.add("Poisoned");
+            String newDescription = "Lose one health @ every specific @ amount of time";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
         }
-        if(BuffChosen ==1){
+        if (BuffChosen == 1) {
             BuffToggle.getInstance().InstantHeal = true;
             GameObject.player1Statuses.add("InstantHeal");
+            String newDescription = "Increase a large @ amount of health @ in just a second";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
         }
-        if(BuffChosen ==2){
+        if (BuffChosen == 2) {
             BuffToggle.getInstance().Frozen = true;
             GameObject.player1Statuses.add("Frozen");
+            String newDescription = "You cant move @ in seconds @ just that...";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
         }
-        if(BuffChosen ==3){
+        if (BuffChosen == 3) {
             BuffToggle.getInstance().PiercingSpell = true;
             GameObject.player1Statuses.add("PiercingSpell");
+            String newDescription = "Your spell can  @ break through armor @ and minus directly to HP";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
         }
-        if(BuffChosen ==4){
+        if (BuffChosen == 4) {
             BuffToggle.getInstance().Excaliburn = true;
             GameObject.player1Statuses.add("Excaliburn");
+            String newDescription = "HUGE SPELL  @ Nothing else @ ";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
         }
     }
 }

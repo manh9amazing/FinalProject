@@ -25,6 +25,7 @@ public class Player1 extends GameObject {
     }
     @Override
     public void render(Graphics g) {
+
         g.setColor(Color.RED);
         g.drawString("HP: " + this.HP + " / "+ this.MaxHP, 820, 50 );
         g.setColor(Color.RED);
@@ -33,6 +34,7 @@ public class Player1 extends GameObject {
             g.setColor(Color.YELLOW);
         g.drawString("ARMOR: " + this.Armor, 820, 110 );}
         else {
+            this.Armor = 0;
             g.setColor(Color.YELLOW);
             g.drawString("ARMOR: BROKEN", 820,110 );
         }
@@ -43,13 +45,15 @@ public class Player1 extends GameObject {
             g.setColor(Color.BLUE);
             g.drawString("AMMO: RELOADING" , 820, 140 );
         }
+
         super.render(g);
     }
     @Override
     public void run() {
+        this.checkTroll();
         this.EventActivator();
         this.BuffActivator();
-        if (!BuffToggle.getInstance().Frozen) {
+        if (!BuffToggle.getInstance().Frozen && !EventToggle.getInstance().Troll) {
             float vx = 0, vy = 0;
             if (KeyPressed.getInstance().upPressed) {
                 vy -= 5;
@@ -89,8 +93,14 @@ public class Player1 extends GameObject {
                     frameCounter.run();
                 }
             }
-            this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
-            this.position.y = Utils.clamp(this.position.y, 0, 270);
+            if (MapState.getInstance().MapReverse){
+                this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
+                this.position.y = Utils.clamp(this.position.y, 370, 610);
+            }
+            else {
+                this.position.x = Utils.clamp(this.position.x, 0, 800 - this.image.getWidth(null));
+                this.position.y = Utils.clamp(this.position.y, 0, 270);
+            }
             this.velocity.set(vx, vy);
             super.run();
         }

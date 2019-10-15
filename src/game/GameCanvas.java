@@ -7,9 +7,12 @@ import java.awt.event.KeyEvent;
 
 import bases.GameObject;
 import bases.KeyPressed;
+import bases.SpriteUtils;
 import entities.*;
 
 public class GameCanvas extends JPanel {
+    Image troll;
+    Image trollMessage;
     Player1 player1;
     Player1Spell player1Spell;
     Player2 player2;
@@ -22,6 +25,8 @@ public class GameCanvas extends JPanel {
         this.player1Spell = new Player1Spell();
         this.player2 = new Player2();
         this.player2Spell = new Player2Spell();
+        this.troll = SpriteUtils.loadImage("assets/images/players/straight/100.png");
+        this.trollMessage = SpriteUtils.loadImage("assets/images/players/straight/101.png");
     }
     private void KeyListener() {
         this.setFocusable(true);
@@ -127,6 +132,13 @@ public class GameCanvas extends JPanel {
             g.setColor(Color.GREEN);
             g.drawString("BUFF: GIVING", 930, 330);
         }
+        if (EventToggle.getInstance().Troll){
+            g.setColor(Color.white);
+            g.fillRect(0,0,2000,1000);
+            g.drawImage(troll,0,90,null);
+            g.drawImage(trollMessage,650,0,null);
+        }
+
 
 
 //test git commit

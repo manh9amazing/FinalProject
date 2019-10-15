@@ -1,7 +1,6 @@
 package bases;
 
 
-
 import entities.*;
 
 import java.awt.*;
@@ -14,6 +13,8 @@ public class GameObject {
     private static ArrayList<GameObject> gameObjects = new ArrayList<>();
     public static ArrayList player1Statuses = new ArrayList();
     public static ArrayList player2Statuses = new ArrayList();
+    public static ArrayList buffDescription = new ArrayList();
+    public static ArrayList buffDescriptionP2 = new ArrayList();
     public static ArrayList eventLogs = new ArrayList();
     private static Object Player1Spell;
 
@@ -29,8 +30,45 @@ public class GameObject {
     public static void renderALL(Graphics g) {
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject gameObject = gameObjects.get(i);
+
             if (gameObject.isActive) {
                 gameObject.render(g);
+            }
+            if (gameObject instanceof Player1){
+                if (BuffToggle.getInstance().InstantHeal) {
+                    Image temp;
+                    temp = SpriteUtils.loadImage("assets/images/players/straight/heal.png");
+                    g.drawImage(temp, (int) gameObject.position.x, (int) gameObject.position.y, null);
+                }
+                if (BuffToggle.getInstance().Poisoned) {
+                    Image temp;
+                    temp = SpriteUtils.loadImage("assets/images/players/straight/toxic.png");
+                    g.drawImage(temp, (int) gameObject.position.x, (int) gameObject.position.y, null);
+                }
+                if (BuffToggle.getInstance().Frozen) {
+                    Image temp;
+                    temp = SpriteUtils.loadImage("assets/images/players/straight/snowflake.png");
+                    g.drawImage(temp, (int) gameObject.position.x, (int) gameObject.position.y, null);
+                }
+            }
+
+
+            if (gameObject instanceof Player2){
+                if (BuffToggleP2.getInstance().InstantHeal) {
+                    Image temp;
+                    temp = SpriteUtils.loadImage("assets/images/players/straight/heal.png");
+                    g.drawImage(temp, (int) gameObject.position.x, (int) gameObject.position.y, null);
+                }
+                if (BuffToggleP2.getInstance().Poisoned) {
+                    Image temp;
+                    temp = SpriteUtils.loadImage("assets/images/players/straight/toxic.png");
+                    g.drawImage(temp, (int) gameObject.position.x, (int) gameObject.position.y, null);
+                }
+                if (BuffToggleP2.getInstance().Frozen) {
+                    Image temp;
+                    temp = SpriteUtils.loadImage("assets/images/players/straight/snowflake.png");
+                    g.drawImage(temp, (int) gameObject.position.x, (int) gameObject.position.y, null);
+                }
             }
         }
         if (player1Statuses != null) {
@@ -85,6 +123,20 @@ public class GameObject {
                 g.drawString("EVENT: INCOMING", 930, 654);
             }
         }
+        if (buffDescription.size()>=1){
+            for (int i = 1; i < 4; i ++){
+                String buffDescriptionPl1 = (String) buffDescription.get(buffDescription.size() - i);
+                g.setColor(Color.red);
+                g.drawString(buffDescriptionPl1, 920, 50 + (i-1) * 30);
+            }
+        }
+        if (buffDescriptionP2.size()>=1){
+            for (int i = 1; i < 4; i ++){
+                String buffDescriptionPl2 = (String) buffDescriptionP2.get(buffDescriptionP2.size() - i);
+                g.setColor(Color.red);
+                g.drawString(buffDescriptionPl2, 920, 400 + (i-1) * 30);
+            }
+        }
 
 
     }
@@ -93,8 +145,45 @@ public class GameObject {
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject gameObject = gameObjects.get(i);
             if (gameObject.isActive) {
-                gameObject.run();
+                if (EventToggle.getInstance().WorldExchangeSubCnt<2 &&
+                    EventToggle.getInstance().WorldExchange &&
+                    MapState.getInstance().MapReverse){
+                    if(gameObject instanceof Player1){
+                        gameObject.position.x = 500;
+                        gameObject.position.y = 500;
+                        EventToggle.getInstance().WorldExchangeSubCnt++;
+                    }
+                    if (gameObject instanceof  Player2){
+                        gameObject.position.x = 200;
+                        gameObject.position.y = 200;
+                        EventToggle.getInstance().WorldExchangeSubCnt++;
+                    }
+                    gameObject.run();
+                }
+                else if (EventToggle.getInstance().WorldExchangeSubCnt<2 &&
+                        EventToggle.getInstance().WorldExchange &&
+                        !MapState.getInstance().MapReverse){
+                    //ko co bug do may tinh ko phat hien ra truong hop chuyen giua true/false
+                    if(gameObject instanceof Player1){
+                        gameObject.position.x = 200;
+                        gameObject.position.y = 200;
+                        EventToggle.getInstance().WorldExchangeSubCnt++;
+                    }
+                    if (gameObject instanceof  Player2){
+                        gameObject.position.x = 500;
+                        gameObject.position.y = 500;
+                        EventToggle.getInstance().WorldExchangeSubCnt++;
+                    }
+                    gameObject.run();
+                }
+                else {
+                    gameObject.run();
+                }
+                if (EventToggle.getInstance().WorldExchangeSubCnt == 2){
+                    EventToggle.getInstance().WorldExchange = false;
+                }
             }
+
         }
 
 //        System.out.println(gameObjects.size());
@@ -117,6 +206,8 @@ public class GameObject {
         if (!EventAvailable.getInstance().eventTime) {
             EventAvailable.getInstance().eventActivated = false;
         }
+
+
     }
 
 
@@ -182,7 +273,8 @@ public class GameObject {
     FrameCounter deFroze;
     FrameCounter deFrozeP2;
     FrameCounter eventLasting;
-    public  Image troll;
+    FrameCounter trollTime;
+
     public Image image;
     public Vector2D position;
     public Vector2D velocity;
@@ -199,11 +291,13 @@ public class GameObject {
     public int Ammo;
     public int MaxAmmo;
     public int ReloadTime;
+    public static int Healcnt;
+    public static  int HealcntP2;
 
 
     public GameObject() {
         GameObject.add(this);
-        this.troll = SpriteUtils.loadImage("assets/images/players/straight/100.png");
+
         this.position = new Vector2D(0, 0);
         this.velocity = new Vector2D(0, 0);
         this.anchor = new Vector2D(0.5f, 0.5f);
@@ -213,14 +307,13 @@ public class GameObject {
         deFroze = new FrameCounter(50);
         deFrozeP2 = new FrameCounter(50);
         eventLasting = new FrameCounter(200);
+        trollTime = new FrameCounter(350);
+
         String s = 5 + "";
     }
 
     public void render(Graphics g) {
         g.drawImage(this.image, (int) this.position.x, (int) this.position.y, null);
-//        if (EventToggle.getInstance().Troll){
-//            g.drawImage(troll,0,0);
-//        }
     }
 
     public void run() {
@@ -263,14 +356,22 @@ public class GameObject {
 
     public void checkInstantHeal() {
         if (BuffToggle.getInstance().InstantHeal) {
-            this.HP += 10;
-            if (this.HP > this.MaxHP) {
-                this.HP = this.MaxHP;
-            }
             this.checkPoisoned();
-            BuffToggle.getInstance().InstantHeal = false;
+            System.out.println(Healcnt);
+            Healcnt++;
+            if (Healcnt==2) {
+                this.HP += 10;
+                if (this.HP > this.MaxHP) {
+                    this.HP = this.MaxHP;
+                }
+            }
+            if (Healcnt >30) {
+                BuffToggle.getInstance().InstantHeal = false;
+                Healcnt = 0;
+            }
         }
     }
+
 
     public void checkExcaliburn() {
         if (BuffToggle.getInstance().Excaliburn) {
@@ -307,12 +408,18 @@ public class GameObject {
 
     public void checkInstantHealP2() {
         if (BuffToggleP2.getInstance().InstantHeal) {
-            this.HP += 10;
-            if (this.HP > this.MaxHP) {
-                this.HP = this.MaxHP;
+            this.checkPoisoned();
+            HealcntP2++;
+            if (HealcntP2==2) {
+                this.HP += 10;
+                if (this.HP > this.MaxHP) {
+                    this.HP = this.MaxHP;
+                }
             }
-            this.checkPoisonedP2();
-            BuffToggleP2.getInstance().InstantHeal = false;
+            if (HealcntP2 >30) {
+                BuffToggleP2.getInstance().InstantHeal = false;
+                HealcntP2 = 0;
+            }
         }
     }
 
@@ -349,6 +456,20 @@ public class GameObject {
             EventToggle.getInstance().SuddenDeath = false;
         }
     }
+
+    //-----------------------------------------------------------
+
+    public void checkTroll(){
+        if(EventToggle.getInstance().Troll){
+            if (trollTime.expired) {
+                EventToggle.getInstance().Troll = false;
+                trollTime.reset();
+            } else {
+                trollTime.run();
+            }
+        }
+    }
+
 
 
 }
