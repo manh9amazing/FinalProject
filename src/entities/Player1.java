@@ -50,6 +50,25 @@ public class Player1 extends GameObject {
     }
     @Override
     public void run() {
+        if (RewardCondition.getInstance().Enemy1Defeated &&
+                RewardCondition.getInstance().Enemy2Defeated &&
+                EventToggle.getInstance().StandTogether){
+            this.MaxHP +=250;
+            this.HP+=200;
+            this.Spell1ATK +=100;
+            RewardCondition.getInstance().Enemy1Defeated=false;
+            RewardCondition.getInstance().Enemy2Defeated=false;
+            EventToggle.getInstance().StandTogether = false;
+
+        }
+        if(RewardCondition.getInstance().Enemy1Defeated &&
+                !RewardCondition.getInstance().Enemy2Defeated &&
+                !EventToggle.getInstance().StandTogether){
+            this.MaxHP +=150;
+            this.HP+=100;
+            this.Spell1ATK += 50;
+            RewardCondition.getInstance().Enemy1Defeated=false;
+        }
         this.checkTroll();
         this.EventActivator();
         this.BuffActivator();

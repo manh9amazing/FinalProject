@@ -12,7 +12,7 @@ public class Player2Spell extends GameObject {
         this.image = SpriteUtils.loadImage("assets/images/enemies/bullets/red.png");
         this.position = new Vector2D();
         this.velocity.set(0, -20);
-        this.boxCollider = new BoxCollider(this, 24, 24);
+        this.boxCollider = new BoxCollider(this, 16, 16);
     }
 
     @Override

@@ -292,6 +292,7 @@ public class GameObject {
     FrameCounter deFrozeP2;
     FrameCounter eventLasting;
     FrameCounter trollTime;
+    FrameCounter enemyFightTime;
 
     public Image image;
     public Vector2D position;
@@ -329,7 +330,7 @@ public class GameObject {
         deFrozeP2 = new FrameCounter(50);
         eventLasting = new FrameCounter(200);
         trollTime = new FrameCounter(350);
-
+        this.enemyFightTime = new FrameCounter(800);
         String s = 5 + "";
     }
 
@@ -489,6 +490,23 @@ public class GameObject {
                 trollTime.run();
             }
         }
+    }
+
+    public void checkEnemyFight(){
+        if(EventToggle.getInstance().StandTogether){
+            System.out.println("OKOKOK");
+            if (!EnemySpawnerToggle.getInstance().Spawned){
+                System.out.println("ONE TIME SPAWN");
+            }
+            if (enemyFightTime.expired) {
+                EventToggle.getInstance().StandTogether = false;
+                EnemySpawnerToggle.getInstance().Spawned = false;
+                enemyFightTime.reset();
+            } else {
+                enemyFightTime.run();
+            }
+        }
+
     }
 
 

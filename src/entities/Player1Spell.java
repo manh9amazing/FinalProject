@@ -8,11 +8,11 @@ public class Player1Spell extends GameObject {
     public Player1Spell() {
         this.ExistX = 2;
         this.ExistY = 2;
-        this.Spell1ATK = 1;
+        this.Spell1ATK = 25;
         this.image = SpriteUtils.loadImage("assets/images/enemies/bullets/blue.png");
         this.position = new Vector2D();
         this.velocity.set(0, -20);
-        this.boxCollider = new BoxCollider(this, 24, 24);
+        this.boxCollider = new BoxCollider(this, 16, 16);
     }
 
     @Override
@@ -60,6 +60,16 @@ public class Player1Spell extends GameObject {
             else{
                 player2.HP -= this.Spell1ATK;
                 this.deActive();
+            }
+        }
+
+        Enemy enemy = GameObject.checkCollider(this, Enemy.class);
+        if (enemy != null ){
+                enemy.HP-= this.Spell1ATK;
+                this.deActive();
+                if (enemy.HP==0){
+                    enemy.deActive();
+                    RewardCondition.getInstance().Enemy1Defeated= true;
             }
         }
         super.run();
