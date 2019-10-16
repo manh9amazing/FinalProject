@@ -17,6 +17,9 @@ public class GameCanvas extends JPanel {
     Player1Spell player1Spell;
     Player2 player2;
     Player2Spell player2Spell;
+    Supporter1Spawner supporter1Spawner;
+    Supporter2Spawner supporter2Spawner;
+
     BuffAvailable buffNotiAndCnt;
 
     public GameCanvas(){
@@ -25,6 +28,8 @@ public class GameCanvas extends JPanel {
         this.player1Spell = new Player1Spell();
         this.player2 = new Player2();
         this.player2Spell = new Player2Spell();
+        this.supporter1Spawner = new Supporter1Spawner();
+        this.supporter2Spawner = new Supporter2Spawner();
         this.troll = SpriteUtils.loadImage("assets/images/players/straight/100.png");
         this.trollMessage = SpriteUtils.loadImage("assets/images/players/straight/101.png");
     }

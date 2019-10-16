@@ -145,7 +145,8 @@ public class GameObject {
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject gameObject = gameObjects.get(i);
             if (gameObject.isActive) {
-                if (EventToggle.getInstance().WorldExchangeSubCnt<2 &&
+                if (
+//                  EventToggle.getInstance().WorldExchangeSubCnt<2 &&
                     EventToggle.getInstance().WorldExchange &&
                     MapState.getInstance().MapReverse){
                     if(gameObject instanceof Player1){
@@ -158,9 +159,18 @@ public class GameObject {
                         gameObject.position.y = 200;
                         EventToggle.getInstance().WorldExchangeSubCnt++;
                     }
+                    if(gameObject instanceof Supporter1){
+                        gameObject.position.x = 800- gameObject.position.x;
+                        gameObject.position.y = 700 - gameObject.position.y;
+                    }
+                    if(gameObject instanceof Supporter2){
+                        gameObject.position.x = 800- gameObject.position.x;
+                        gameObject.position.y = 700 - gameObject.position.y;
+                    }
                     gameObject.run();
                 }
-                else if (EventToggle.getInstance().WorldExchangeSubCnt<2 &&
+                else if (
+//                        EventToggle.getInstance().WorldExchangeSubCnt<2 &&
                         EventToggle.getInstance().WorldExchange &&
                         !MapState.getInstance().MapReverse){
                     //ko co bug do may tinh ko phat hien ra truong hop chuyen giua true/false
@@ -174,17 +184,25 @@ public class GameObject {
                         gameObject.position.y = 500;
                         EventToggle.getInstance().WorldExchangeSubCnt++;
                     }
+                    if(gameObject instanceof  Supporter1){
+                        gameObject.position.x = 800 - gameObject.position.x;
+                        gameObject.position.y = 700 - gameObject.position.y;
+                    }
+                    if(gameObject instanceof Supporter2){
+                        gameObject.position.x = 800- gameObject.position.x;
+                        gameObject.position.y = 700 - gameObject.position.y;
+                    }
                     gameObject.run();
                 }
                 else {
                     gameObject.run();
                 }
-                if (EventToggle.getInstance().WorldExchangeSubCnt == 2){
-                    EventToggle.getInstance().WorldExchange = false;
-                }
+//                if (EventToggle.getInstance().WorldExchangeSubCnt == 2){
+//                    EventToggle.getInstance().WorldExchange = false;
+//                }
             }
-
         }
+        EventToggle.getInstance().WorldExchange = false;
 
 //        System.out.println(gameObjects.size());
         if (BuffAvailable.getInstance().buffTime == true && !BuffAvailable.getInstance().buffActivated) {
@@ -293,6 +311,9 @@ public class GameObject {
     public int ReloadTime;
     public static int Healcnt;
     public static  int HealcntP2;
+
+    public static int SupporterCnt;
+    public static  int SupporterP2Cnt;
 
 
     public GameObject() {
