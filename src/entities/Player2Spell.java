@@ -62,6 +62,16 @@ public class Player2Spell extends GameObject {
         else{
 //            System.out.println("ko phat hien");
         }
+
+        Enemy2 enemy2 = GameObject.checkCollider(this, Enemy2.class);
+        if (enemy2 != null ){
+            enemy2.HP-= this.Spell2ATK;
+            this.deActive();
+            if (enemy2.HP<=0){
+                enemy2.deActive();
+                RewardCondition.getInstance().Enemy2Defeated= true;
+            }
+        }
         super.run();
     }
 

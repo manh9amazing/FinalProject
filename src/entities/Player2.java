@@ -32,6 +32,18 @@ public class Player2 extends GameObject {
         if (this.Armor > 0) {
             g.setColor(Color.YELLOW);
             g.drawString("ARMOR: " + this.Armor, 820, 460 );
+            if(faceDir==0) {
+                g.drawImage(this.shield, (int) (this.position.x - 6.25), (int) this.position.y, null);
+            }
+            if(faceDir==1) {
+                g.drawImage(this.shield, (int) (this.position.x - 6.25), (int) (this.position.y-12.5), null);
+            }
+            if(faceDir==2) {
+                g.drawImage(this.shield, (int) (this.position.x - 12.5), (int) (this.position.y-6.25), null);
+            }
+            if(faceDir==3) {
+                g.drawImage(this.shield, (int) this.position.x , (int) (this.position.y-6.25), null);
+            }
         }
         else{
             this.Armor =0;
@@ -50,6 +62,25 @@ public class Player2 extends GameObject {
     @Override
     public void run() {
 //        this.checkTroll();
+        if (RewardCondition.getInstance().Enemy2Defeated &&
+                RewardCondition.getInstance().Enemy1Defeated &&
+                !EventToggle.getInstance().StandTogether&&
+            RewardCondition.getInstance().PlayerGivenBonus<2){
+            this.MaxHP +=250;
+            this.HP+=200;
+            this.Spell2ATK +=100;
+            RewardCondition.getInstance().PlayerGivenBonus++;
+            EventToggle.getInstance().StandTogether = false;
+        }
+        if(RewardCondition.getInstance().Enemy2Defeated &&
+                !RewardCondition.getInstance().Enemy1Defeated &&
+                !EventToggle.getInstance().StandTogether){
+            this.MaxHP +=150;
+            this.HP+=100;
+            this.Spell2ATK += 50;
+            RewardCondition.getInstance().Enemy2Defeated=false;
+        }
+
         this.checkEnemyFight();
         this.EventActivator();
         this.BuffActivatorP2();

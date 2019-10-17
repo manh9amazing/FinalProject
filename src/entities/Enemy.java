@@ -16,7 +16,7 @@ public class Enemy extends GameObject {
         this.HP = 100;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/enemy.png");
         this.position = new Vector2D(400,270);
-        this.boxCollider = new BoxCollider(this, 27, 27);
+        this.boxCollider = new BoxCollider(this, 50, 50);
         this.shootTime = new FrameCounter(100);
         this.aimTime = new FrameCounter(200);
         this.dir_switch = false;
@@ -94,6 +94,11 @@ public class Enemy extends GameObject {
             this.deActive();
             player1.HP-=1000;
             }
+        Player2 player2 = GameObject.checkCollider(this, Player2.class);
+        if (player2 != null ){
+            this.deActive();
+            player2.HP-=1000;
+        }
         }
 
 

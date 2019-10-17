@@ -22,7 +22,9 @@ public class EventRandomize {
             GameObject.eventLogs.add("SuddenDeath STARTING...");
         }
         if(EventChosen==2){
-
+            RewardCondition.getInstance().Enemy1Defeated=false;
+            RewardCondition.getInstance().Enemy2Defeated=false;
+            RewardCondition.getInstance().PlayerGivenBonus = 0;
             EventToggle.getInstance().StandTogether = true;
             GameObject.eventLogs.add("StandTogether STARTING...");
         }

@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="" />
+    <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/entities/Enemy2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Enemy2Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EnemySpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemySpawner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EnemySpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemySpell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EventRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player2Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/RewardCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/RewardCondition.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571309235733</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update: enemy2 image">
+      <created>1571309798385</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1571309798385</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,14 +220,15 @@
     <MESSAGE value="update: 3rd day work" />
     <MESSAGE value="update: error abt enemy need to be fixed" />
     <MESSAGE value="update: error fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="update: error fixed." />
+    <MESSAGE value="update: enemy2 image" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: enemy2 image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>337</line>
+          <line>338</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

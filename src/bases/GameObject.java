@@ -295,6 +295,7 @@ public class GameObject {
     FrameCounter enemyFightTime;
 
     public Image image;
+    public Image shield;
     public Vector2D position;
     public Vector2D velocity;
     public BoxCollider boxCollider;
@@ -319,7 +320,7 @@ public class GameObject {
 
     public GameObject() {
         GameObject.add(this);
-
+        this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
         this.position = new Vector2D(0, 0);
         this.velocity = new Vector2D(0, 0);
         this.anchor = new Vector2D(0.5f, 0.5f);
@@ -330,7 +331,7 @@ public class GameObject {
         deFrozeP2 = new FrameCounter(50);
         eventLasting = new FrameCounter(200);
         trollTime = new FrameCounter(350);
-        this.enemyFightTime = new FrameCounter(800);
+        this.enemyFightTime = new FrameCounter(1400);
         String s = 5 + "";
     }
 
@@ -500,6 +501,7 @@ public class GameObject {
 //            }
             if (enemyFightTime.expired) {
                 EventToggle.getInstance().StandTogether = false;
+
                 EnemySpawnerToggle.getInstance().Spawned = false;
                 enemyFightTime.reset();
             } else {

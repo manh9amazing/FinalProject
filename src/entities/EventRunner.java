@@ -10,7 +10,7 @@ public class EventRunner {
     FrameCounter eventTimeComing;
     FrameCounter littleDelay;
     public EventRunner (){
-        this.eventTimeComing = new FrameCounter(1000);
+        this.eventTimeComing = new FrameCounter(1600);
         this.littleDelay = new FrameCounter(50);
     }
 
