@@ -2,29 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/EnemySpawner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/EnemySpawnerToggle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/EnemySpell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/RewardCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/BuffRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/BuffRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/BuffRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/EventRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player2Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571226627272</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update: error abt enemy need to be fixed">
+      <created>1571246828760</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571246828761</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,7 +201,8 @@
     <MESSAGE value="update: 2nd day work." />
     <MESSAGE value="update: 2nd day work.." />
     <MESSAGE value="update: 3rd day work" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 3rd day work" />
+    <MESSAGE value="update: error abt enemy need to be fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: error abt enemy need to be fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

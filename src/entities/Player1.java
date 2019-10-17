@@ -59,7 +59,6 @@ public class Player1 extends GameObject {
             RewardCondition.getInstance().Enemy1Defeated=false;
             RewardCondition.getInstance().Enemy2Defeated=false;
             EventToggle.getInstance().StandTogether = false;
-
         }
         if(RewardCondition.getInstance().Enemy1Defeated &&
                 !RewardCondition.getInstance().Enemy2Defeated &&
@@ -69,6 +68,7 @@ public class Player1 extends GameObject {
             this.Spell1ATK += 50;
             RewardCondition.getInstance().Enemy1Defeated=false;
         }
+
         this.checkTroll();
         this.EventActivator();
         this.BuffActivator();

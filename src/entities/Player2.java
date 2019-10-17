@@ -50,6 +50,7 @@ public class Player2 extends GameObject {
     @Override
     public void run() {
 //        this.checkTroll();
+        this.checkEnemyFight();
         this.EventActivator();
         this.BuffActivatorP2();
         if(!BuffToggleP2.getInstance().Frozen && !EventToggle.getInstance().Troll) {

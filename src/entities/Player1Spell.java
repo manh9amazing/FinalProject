@@ -67,7 +67,7 @@ public class Player1Spell extends GameObject {
         if (enemy != null ){
                 enemy.HP-= this.Spell1ATK;
                 this.deActive();
-                if (enemy.HP==0){
+                if (enemy.HP<=0){
                     enemy.deActive();
                     RewardCondition.getInstance().Enemy1Defeated= true;
             }

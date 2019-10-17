@@ -249,8 +249,8 @@ public class GameObject {
         E gameObject = GameObject.findInactive(cls);
         if (gameObject != null) {
             gameObject.reset();
-            System.out.println("recycle");
-            System.out.println("hoi sinh" + gameObject.getClass());
+//            System.out.println("recycle");
+//            System.out.println("hoi sinh" + gameObject.getClass());
             return (E) gameObject;
         }
         try {
@@ -494,10 +494,10 @@ public class GameObject {
 
     public void checkEnemyFight(){
         if(EventToggle.getInstance().StandTogether){
-            System.out.println("OKOKOK");
-            if (!EnemySpawnerToggle.getInstance().Spawned){
-                System.out.println("ONE TIME SPAWN");
-            }
+//            System.out.println("OKOKOK");
+//            if (!EnemySpawnerToggle.getInstance().Spawned){
+//                System.out.println("ONE TIME SPAWN");
+//            }
             if (enemyFightTime.expired) {
                 EventToggle.getInstance().StandTogether = false;
                 EnemySpawnerToggle.getInstance().Spawned = false;
