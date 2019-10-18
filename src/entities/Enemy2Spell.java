@@ -19,15 +19,25 @@ public class Enemy2Spell extends GameObject {
         this.deActiveIfNeeded();
         this.position.x -= spellDist*Math.cos(this.createAngle);
         this.position.y += spellDist*Math.sin(this.createAngle);
-        Player2 player2 = GameObject.checkCollider(this, Player2.class);
-        if (player2 != null ){
-            this.deActive();
-            player2.HP--;
-        }
         Player1 player1 = GameObject.checkCollider(this, Player1.class);
         if (player1 != null ){
             this.deActive();
-            player1.HP--;
+            if (player1.Armor==0) {
+                player1.HP--;
+            }
+            else{
+                player1.Armor-=2;
+            }
+        }
+        Player2 player2 = GameObject.checkCollider(this, Player2.class);
+        if (player2 != null ){
+            this.deActive();
+            if (player2.Armor==0) {
+                player2.HP--;
+            }
+            else{
+                player2.Armor-=2;
+            }
         }
     }
     public void deActiveIfNeeded(){

@@ -356,6 +356,8 @@ public class GameObject {
         this.checkInstantHeal();
         this.checkFrozen();
         this.checkExcaliburn();
+        this.checkArmorUP();
+        this.checkBerserk();
         this.checkPoisoned();
     }
 
@@ -363,6 +365,8 @@ public class GameObject {
         this.checkInstantHealP2();
         this.checkFrozenP2();
         this.checkExcaliburnP2();
+        this.checkArmorUPP2();
+        this.checkBerserkP2();
         this.checkPoisonedP2();
     }
 
@@ -404,6 +408,23 @@ public class GameObject {
         }
     }
 
+    public void checkArmorUP() {
+        if (BuffToggle.getInstance().ArmorUP) {
+            this.Armor +=50;
+            this.checkPoisoned();
+            BuffToggle.getInstance().ArmorUP = false;
+        }
+    }
+
+    public void checkBerserk() {
+        if (BuffToggle.getInstance().Berserk) {
+            this.Spell1ATK = this.Spell1ATK*2;
+            this.HP = (int)(this.HP/2);
+            this.checkPoisoned();
+            BuffToggle.getInstance().Berserk = false;
+        }
+    }
+
     public void checkFrozen() {
         if (BuffToggle.getInstance().Frozen) {
             if (deFroze.expired) {
@@ -431,7 +452,7 @@ public class GameObject {
 
     public void checkInstantHealP2() {
         if (BuffToggleP2.getInstance().InstantHeal) {
-            this.checkPoisoned();
+            this.checkPoisonedP2();
             HealcntP2++;
             if (HealcntP2==2) {
                 this.HP += 10;
@@ -451,6 +472,23 @@ public class GameObject {
             this.Spell2ATK = 999;
             this.checkPoisonedP2();
             BuffToggleP2.getInstance().Excaliburn = false;
+        }
+    }
+
+    public void checkArmorUPP2() {
+        if (BuffToggleP2.getInstance().ArmorUP) {
+            this.Armor +=30;
+            this.checkPoisonedP2();
+            BuffToggleP2.getInstance().ArmorUP = false;
+        }
+    }
+
+    public void checkBerserkP2() {
+        if (BuffToggleP2.getInstance().Berserk) {
+            this.Spell2ATK = this.Spell2ATK*2;
+            this.HP = (int)(this.HP/2);
+            this.checkPoisonedP2();
+            BuffToggleP2.getInstance().Berserk = false;
         }
     }
 

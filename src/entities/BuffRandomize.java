@@ -9,7 +9,7 @@ public class BuffRandomize {
     public void run() {
         Random randomMachine = new Random();
         BuffChosen = randomMachine.nextInt(BuffToggle.getInstance().BuffNumber);
-        BuffChosen = 1;
+        BuffChosen = 2;
 //        System.out.println(BuffChosen);
         if (BuffChosen == 0) {
             BuffToggle.getInstance().Poisoned = true;
@@ -61,6 +61,26 @@ public class BuffRandomize {
             BuffToggle.getInstance().SupporterSummon = true;
             GameObject.player1Statuses.add("SupporterSummon");
             String newDescription = "Hey you have @ a NEW friend @ ";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
+        }
+
+        if (BuffChosen == 6){
+            BuffToggle.getInstance().Berserk = true;
+            GameObject.player1Statuses.add("Berserk");
+            String newDescription = "Sacrifice your HP @ for devastating ATK @ CHARGE!!!";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
+        }
+
+        if (BuffChosen == 7){
+            BuffToggle.getInstance().ArmorUP = true;
+            GameObject.player1Statuses.add("ArmorUP");
+            String newDescription = "Who likes @ more Armor? @ You?";
             String[] arrOfStr = newDescription.split("@", 5);
             for (int i = 1; i < arrOfStr.length + 1; i++) {
                 GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);

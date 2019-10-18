@@ -9,11 +9,13 @@ public class BuffToggle {
     public boolean PiercingSpell;
     public boolean Excaliburn;
     public boolean SupporterSummon;
+    public boolean Berserk;
+    public boolean ArmorUP;
 
     private static final BuffToggle INSTANCE = new BuffToggle();
 
     private BuffToggle(){
-        this.BuffNumber = 6;
+        this.BuffNumber = 8;
 
         this.Frozen = false;
         this.InstantHeal = false;
@@ -21,6 +23,8 @@ public class BuffToggle {
         this.PiercingSpell = false;
         this.Excaliburn = false;
         this.SupporterSummon = false;
+        this.Berserk = false;
+        this.ArmorUP = false;
 
     }
 
