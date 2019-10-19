@@ -293,6 +293,7 @@ public class GameObject {
     FrameCounter eventLasting;
     FrameCounter trollTime;
     FrameCounter enemyFightTime;
+    FrameCounter flagCaptureTime;
 
     public Image image;
     public Image shield;
@@ -332,6 +333,7 @@ public class GameObject {
         eventLasting = new FrameCounter(200);
         trollTime = new FrameCounter(350);
         this.enemyFightTime = new FrameCounter(800);
+        this.flagCaptureTime = new FrameCounter(500);
         //1400/1600-runner
         String s = 5 + "";
     }
@@ -547,7 +549,17 @@ public class GameObject {
                 enemyFightTime.run();
             }
         }
+    }
 
+    public void checkFlagCapture(){
+        if(EventToggle.getInstance().FlagCapture){
+            if (flagCaptureTime.expired) {
+                EventToggle.getInstance().FlagCapture = false;
+                flagCaptureTime.reset();
+            } else {
+                flagCaptureTime.run();
+            }
+        }
     }
 
 

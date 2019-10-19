@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entities/FlagBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/FlagBlockSpawnerToggle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EventRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EventToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventToggle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/FlagBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -205,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571418537584</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update: 5th event initialized">
+      <created>1571460348825</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1571460348825</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,14 +237,15 @@
     <MESSAGE value="update: enemy2 image" />
     <MESSAGE value="update: 3.5th day work" />
     <MESSAGE value="update: scene works start" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: scene works start" />
+    <MESSAGE value="update: 5th event initialized" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 5th event initialized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>339</line>
+          <line>341</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

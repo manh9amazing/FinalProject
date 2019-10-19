@@ -82,7 +82,7 @@ public class Player1 extends GameObject {
             this.Spell1ATK += 50;
             RewardCondition.getInstance().Enemy1Defeated=false;
         }
-
+        this.checkFlagCapture();
         this.checkTroll();
         this.EventActivator();
         this.BuffActivator();
