@@ -98,7 +98,7 @@ public class Enemy extends GameObject {
         if (player2 != null ){
             this.deActive();
             player2.HP-=1000;
-        }
+            }
         }
 
 

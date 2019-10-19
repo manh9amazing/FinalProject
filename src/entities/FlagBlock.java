@@ -1,7 +1,9 @@
 package entities;
 
+import bases.BoxCollider;
 import bases.GameObject;
 import bases.SpriteUtils;
+import bases.Vector2D;
 
 import java.awt.*;
 
@@ -9,7 +11,9 @@ public class FlagBlock extends GameObject {
     public boolean redState;
     public boolean greenState;
     public FlagBlock(){
-        this.image = SpriteUtils.loadImage("");
+        this.image = SpriteUtils.loadImage("assets/images/players/straight/greenState.png");
+        this.position = new Vector2D(600,600);
+        this.boxCollider = new BoxCollider(this, 25, 25);
         this.redState = false;
         this.greenState = true;
     }
@@ -17,15 +21,15 @@ public class FlagBlock extends GameObject {
     @Override
     public void render(Graphics g) {
         if (this.redState){
-            this.image = SpriteUtils.loadImage("");
+            this.image = SpriteUtils.loadImage("assets/images/players/straight/redState.png");
         }
         if (this.greenState){
-            this.image = SpriteUtils.loadImage("");
+            this.image = SpriteUtils.loadImage("assets/images/players/straight/greenState.png");
         }
         super.render(g);
     }
 
-    @Override
+
     public void run() {
         this.deActiveIfNeeded();
         Player1 player1 = GameObject.checkCollider(this, Player1.class);
@@ -37,6 +41,7 @@ public class FlagBlock extends GameObject {
                 this.redState = true;
                 this.greenState = false;
             }
+
         }
         Player2 player2 = GameObject.checkCollider(this, Player2.class);
         if (player2 != null ){
@@ -48,6 +53,7 @@ public class FlagBlock extends GameObject {
                 this.greenState = false;
             }
         }
+
     }
 
     public void deActiveIfNeeded(){
