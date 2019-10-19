@@ -21,6 +21,7 @@ public class GameCanvas extends JPanel {
     Supporter2Spawner supporter2Spawner;
 //    Enemy enemy;
     EnemySpawner enemySpawner;
+    FlagBlockSpawner flagBlockSpawner;
 
     BuffAvailable buffNotiAndCnt;
 
@@ -33,6 +34,7 @@ public class GameCanvas extends JPanel {
         this.supporter1Spawner = new Supporter1Spawner();
         this.supporter2Spawner = new Supporter2Spawner();
         this.enemySpawner = new EnemySpawner();
+        this.flagBlockSpawner = new FlagBlockSpawner();
         this.troll = SpriteUtils.loadImage("assets/images/players/straight/100.png");
         this.trollMessage = SpriteUtils.loadImage("assets/images/players/straight/101.png");
     }
