@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
+    <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="update: finishing flagCapture entities.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/BuffToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffToggle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/BuffToggleP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffToggleP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EventToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventToggle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/FlagBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player1Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player2Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/RewardCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/RewardCondition.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571471869090</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update: finishing flagCapture entities.">
+      <created>1571479425387</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1571479425387</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

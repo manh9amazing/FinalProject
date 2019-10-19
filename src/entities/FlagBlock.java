@@ -10,13 +10,16 @@ import java.awt.*;
 public class FlagBlock extends GameObject {
     public boolean redState;
     public boolean greenState;
+    public boolean pointCounted;
 
     public FlagBlock(){
         this.image = SpriteUtils.loadImage("assets/images/players/straight/greenState.png");
-        this.position = new Vector2D(600,600);
+        this.position = new Vector2D(775,290);
+        //775,640-365-260;
         this.boxCollider = new BoxCollider(this, 25, 25);
         this.redState = false;
         this.greenState = true;
+        this.pointCounted = false;
     }
 
     @Override
@@ -39,7 +42,10 @@ public class FlagBlock extends GameObject {
                     this.position.x <= player1.position.x + this.image.getWidth(null)&&
                 this.position.y >= player1.position.y &&
                     this.position.y <= player1.position.y + this.image.getHeight(null)){
-                this.FlagCaptured++;
+                if(!this.pointCounted) {
+                    this.FlagCaptured++;
+                    this.pointCounted = true;
+                }
                 this.redState = true;
                 this.greenState = false;
             }
@@ -51,7 +57,11 @@ public class FlagBlock extends GameObject {
                     this.position.x <= player2.position.x + this.image.getWidth(null)&&
                     this.position.y >= player2.position.y &&
                     this.position.y <= player2.position.y + this.image.getHeight(null)){
-                this.FlagCapturedP2++;
+
+                if(!this.pointCounted) {
+                    this.FlagCapturedP2++;
+                    this.pointCounted = true;
+                }
                 this.redState = true;
                 this.greenState = false;
             }

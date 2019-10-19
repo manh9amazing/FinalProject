@@ -8,21 +8,23 @@ public class EventToggle {
     public boolean StandTogether;
     public boolean WorldExchange;
     public boolean FlagCapture;
+    public boolean Blessings;
     public int WorldExchangeSubCnt;
-
+    public int BlessingsSubCnt;
 
     private static final EventToggle INSTANCE = new EventToggle();
 
     private EventToggle(){
-        this.EventNumber = 5;
+        this.EventNumber = 6;
 
         this.Troll = false;
         this.SuddenDeath = false;
         this.StandTogether = false;
         this.WorldExchange = false;
         this.FlagCapture = false;
+        this.Blessings = false;
         this.WorldExchangeSubCnt = 0;
-
+        this.BlessingsSubCnt = 0;
 
     }
 

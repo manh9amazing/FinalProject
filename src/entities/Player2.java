@@ -61,7 +61,23 @@ public class Player2 extends GameObject {
     }
     @Override
     public void run() {
+        if(EventToggle.getInstance().Blessings){
+            this.HP+= 500;
+            this.MaxHP +=500;
+            this.MaxAmmo+=2;
+            EventToggle.getInstance().BlessingsSubCnt++;
+        }
+
 //        this.checkTroll();
+        if (!EventToggle.getInstance().FlagCapture&&
+                RewardCondition.getInstance().PlayerFlagBonus<2){
+            this.MaxHP +=this.FlagCapturedP2*100;
+            this.HP+= this.FlagCapturedP2*100;
+            this.Spell2ATK +=this.FlagCapturedP2*100;
+            this.Armor+=this.FlagCapturedP2*20;
+            RewardCondition.getInstance().PlayerFlagBonus++;
+        }
+
         if (RewardCondition.getInstance().Enemy2Defeated &&
                 RewardCondition.getInstance().Enemy1Defeated &&
                 !EventToggle.getInstance().StandTogether&&

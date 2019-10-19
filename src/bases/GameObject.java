@@ -562,10 +562,16 @@ public class GameObject {
                 EventToggle.getInstance().FlagCapture = false;
                 FlagBlockSpawnerToggle.getInstance().Spawned = false;
                 flagCaptureTime.reset();
-
             } else {
                 flagCaptureTime.run();
             }
+        }
+    }
+
+   public void checkBlessings() {
+        if (EventToggle.getInstance().BlessingsSubCnt>=2){
+            EventToggle.getInstance().Blessings = false;
+            EventToggle.getInstance().BlessingsSubCnt = 0;
         }
     }
 

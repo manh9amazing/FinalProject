@@ -9,7 +9,7 @@ public class BuffRandomizeP2 {
     public void run(){
         Random randomMachine = new Random();
         BuffChosen = randomMachine.nextInt(BuffToggle.getInstance().BuffNumber);
-        BuffChosen = 6;
+        BuffChosen = 8;
 //        System.out.println(BuffChosen);
         if(BuffChosen ==0){
             BuffToggleP2.getInstance().Poisoned = true;
@@ -81,6 +81,16 @@ public class BuffRandomizeP2 {
             BuffToggleP2.getInstance().ArmorUP = true;
             GameObject.player2Statuses.add("ArmorUP");
             String newDescription = "Who likes @ more Armor? @ You?";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescriptionP2.add(arrOfStr[arrOfStr.length - i]);
+            }
+        }
+
+        if (BuffChosen == 8){
+            BuffToggleP2.getInstance().PoisonousBullet = true;
+            GameObject.player2Statuses.add("PoisonousBullet");
+            String newDescription = "Your bullets have @ err..... @ POISON";
             String[] arrOfStr = newDescription.split("@", 5);
             for (int i = 1; i < arrOfStr.length + 1; i++) {
                 GameObject.buffDescriptionP2.add(arrOfStr[arrOfStr.length - i]);

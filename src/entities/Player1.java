@@ -1,6 +1,7 @@
 package entities;
 
 import bases.*;
+import org.w3c.dom.events.Event;
 
 import java.awt.*;
 
@@ -59,11 +60,29 @@ public class Player1 extends GameObject {
             g.setColor(Color.BLUE);
             g.drawString("AMMO: RELOADING" , 820, 140 );
         }
-
         super.render(g);
     }
     @Override
     public void run() {
+        this.checkBlessings();
+
+        if(EventToggle.getInstance().Blessings){
+            this.HP+= 500;
+            this.MaxHP+= 500;
+            this.MaxAmmo+=2;
+            EventToggle.getInstance().BlessingsSubCnt++;
+        }
+
+        if (!EventToggle.getInstance().FlagCapture&&
+                RewardCondition.getInstance().PlayerFlagBonus<2){
+//            System.out.println(this.FlagCaptured);
+            this.MaxHP +=this.FlagCaptured*100;
+            this.HP+= this.FlagCaptured*100;
+            this.Spell1ATK +=this.FlagCaptured*100;
+            this.Armor+=this.FlagCaptured*20;
+            RewardCondition.getInstance().PlayerFlagBonus++;
+        }
+
         if (RewardCondition.getInstance().Enemy1Defeated &&
                 RewardCondition.getInstance().Enemy2Defeated &&
                 !EventToggle.getInstance().StandTogether&&

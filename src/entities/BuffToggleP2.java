@@ -11,11 +11,12 @@ public class BuffToggleP2 {
     public boolean SupporterSummon;
     public boolean Berserk;
     public boolean ArmorUP;
+    public boolean PoisonousBullet;
 
     private static final BuffToggleP2 INSTANCE = new BuffToggleP2();
 
     private BuffToggleP2(){
-        this.BuffNumber = 8;
+        this.BuffNumber = 9;
 
         this.Frozen = false;
         this.InstantHeal = false;
@@ -25,6 +26,7 @@ public class BuffToggleP2 {
         this.SupporterSummon = false;
         this.Berserk = false;
         this.ArmorUP = false;
+        this.PoisonousBullet = false;
 
     }
 

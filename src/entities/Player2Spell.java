@@ -46,6 +46,10 @@ public class Player2Spell extends GameObject {
         this.deActiveIfNeeded();
         Player1 player1 = GameObject.checkCollider(this, Player1.class);
         if (player1 != null ){
+            if (BuffToggleP2.getInstance().PoisonousBullet){
+                BuffToggle.getInstance().Poisoned = true;
+            }
+
             if(!BuffToggleP2.getInstance().PiercingSpell) {
                 if (player1.Armor <= 0) {
                     player1.HP -= this.Spell2ATK;
