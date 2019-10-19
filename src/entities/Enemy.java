@@ -67,7 +67,7 @@ public class Enemy extends GameObject {
 
 
     public void run() {
-            this.deActiveifNeeded();
+            this.deActiveIfNeeded();
             if(!shootTime.expired) {
                 if (isShooting == 20) {
                     this.castSpell();
@@ -128,7 +128,7 @@ public class Enemy extends GameObject {
         super.deActive();
     }
 
-    public  void deActiveifNeeded(){
+    public  void deActiveIfNeeded(){
         if (!EventToggle.getInstance().StandTogether){
             this.deActive();
         }
