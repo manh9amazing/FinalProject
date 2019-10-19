@@ -331,7 +331,8 @@ public class GameObject {
         deFrozeP2 = new FrameCounter(50);
         eventLasting = new FrameCounter(200);
         trollTime = new FrameCounter(350);
-        this.enemyFightTime = new FrameCounter(1400);
+        this.enemyFightTime = new FrameCounter(800);
+        //1400/1600-runner
         String s = 5 + "";
     }
 

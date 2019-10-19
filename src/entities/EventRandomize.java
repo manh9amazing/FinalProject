@@ -9,7 +9,7 @@ public class EventRandomize {
     public void run(){
         Random randomMachine = new Random();
         EventChosen = randomMachine.nextInt(EventToggle.getInstance().EventNumber);
-        EventChosen = 1;
+        EventChosen = 4;
 //        System.out.println(EventChosen);
         if(EventChosen ==0){
 
@@ -33,7 +33,11 @@ public class EventRandomize {
             EventToggle.getInstance().WorldExchange = true;
             MapState.getInstance().MapReverse = !MapState.getInstance().MapReverse;
             EventToggle.getInstance().WorldExchangeSubCnt = 0;
-            GameObject.eventLogs.add("WorldExchange...");
+            GameObject.eventLogs.add("WorldExchange STARTING...");
+        }
+        if(EventChosen==4){
+            EventToggle.getInstance().FlagCapture = true;
+            GameObject.eventLogs.add("FlagCapture STARTING...");
         }
     }
 }
