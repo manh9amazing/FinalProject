@@ -4,11 +4,9 @@
     <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/FlagBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571470959149</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update: finishing flagCapture entities.">
+      <created>1571471869090</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1571471869090</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,14 +269,15 @@
     <MESSAGE value="update: 5th event initialized" />
     <MESSAGE value="update: start flagCapture entities" />
     <MESSAGE value="update: finishing flagCapture entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: finishing flagCapture entities" />
+    <MESSAGE value="update: finishing flagCapture entities." />
+    <option name="LAST_COMMIT_MESSAGE" value="update: finishing flagCapture entities." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>341</line>
+          <line>345</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

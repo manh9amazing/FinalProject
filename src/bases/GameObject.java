@@ -314,6 +314,8 @@ public class GameObject {
     public int ReloadTime;
     public static int Healcnt;
     public static  int HealcntP2;
+    public static int FlagCaptured;
+    public static int FlagCapturedP2;
 
     public static int SupporterCnt;
     public static  int SupporterP2Cnt;
@@ -326,6 +328,8 @@ public class GameObject {
         this.velocity = new Vector2D(0, 0);
         this.anchor = new Vector2D(0.5f, 0.5f);
         this.isActive = true;
+        this.FlagCaptured = 0;
+        this.FlagCapturedP2 = 0;
         poisonIfNeeded = new FrameCounter(20);
         poisonIfNeededP2 = new FrameCounter(20);
         deFroze = new FrameCounter(50);
@@ -554,8 +558,11 @@ public class GameObject {
     public void checkFlagCapture(){
         if(EventToggle.getInstance().FlagCapture){
             if (flagCaptureTime.expired) {
+                System.out.println(this.FlagCaptured);
                 EventToggle.getInstance().FlagCapture = false;
+                FlagBlockSpawnerToggle.getInstance().Spawned = false;
                 flagCaptureTime.reset();
+
             } else {
                 flagCaptureTime.run();
             }
