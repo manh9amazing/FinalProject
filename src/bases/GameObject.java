@@ -34,6 +34,8 @@ public class GameObject {
             if (gameObject.isActive) {
                 gameObject.render(g);
             }
+
+
             if (gameObject instanceof Player1){
                 if (BuffToggle.getInstance().InstantHeal) {
                     Image temp;
@@ -71,74 +73,77 @@ public class GameObject {
                 }
             }
         }
-        if (player1Statuses != null) {
-            if (player1Statuses.size() >= 3) {
-                int i = 0;
-                while (i < 3) {
-                    String player1Status = (String) player1Statuses.get(player1Statuses.size() - 1 - i);
-                    g.setColor(Color.orange);
-                    int X_to_draw = 170 + (i + 1) * 30;
-                    g.drawString(player1Status, 820, X_to_draw);
-                    i++;
-                }
-            } else {
-                for (int i = 0; i < player1Statuses.size(); i++) {
-                    String player1Status = (String) player1Statuses.get(player1Statuses.size() - 1 - i);
-                    g.setColor(Color.orange);
-                    int X_to_draw = 170 + (i + 1) * 30;
-                    g.drawString(player1Status, 820, X_to_draw);
-                }
-            }
-        }
-        if (player2Statuses != null) {
-            if (player2Statuses.size() >= 3) {
-                int i = 0;
-                while (i < 3) {
-                    String player2Status = (String) player2Statuses.get(player2Statuses.size() - 1 - i);
-                    g.setColor(Color.black);
-                    int X_to_draw = 520 + (i + 1) * 30;
-                    g.drawString(player2Status, 820, X_to_draw);
-                    i++;
-                }
-            } else {
-                for (int i = 0; i < player2Statuses.size(); i++) {
-                    String player2Status = (String) player2Statuses.get(player2Statuses.size() - 1 - i);
-                    g.setColor(Color.black);
-                    int X_to_draw = 520 + (i + 1) * 30;
-                    g.drawString(player2Status, 820, X_to_draw);
-                }
-            }
 
-        }
-        if (EventAvailable.getInstance().eventTime == false) {
-            g.setColor(Color.BLUE);
-            g.drawString("EVENT: INCOMING", 930, 654);
-        }
-        if (EventAvailable.getInstance().eventTime == true) {
-            if (eventLogs.size() >= 1) {
-                g.setColor(Color.BLACK);
-                g.drawString("EVENT: " + eventLogs.get(eventLogs.size() - 1), 930, 654);
-            } else {
+        //***************
+        if(!ChangeSceneCnt.getInstance().SceneChanged) {
+            if (player1Statuses != null) {
+                if (player1Statuses.size() >= 3) {
+                    int i = 0;
+                    while (i < 3) {
+                        String player1Status = (String) player1Statuses.get(player1Statuses.size() - 1 - i);
+                        g.setColor(Color.orange);
+                        int X_to_draw = 170 + (i + 1) * 30;
+                        g.drawString(player1Status, 820, X_to_draw);
+                        i++;
+                    }
+                } else {
+                    for (int i = 0; i < player1Statuses.size(); i++) {
+                        String player1Status = (String) player1Statuses.get(player1Statuses.size() - 1 - i);
+                        g.setColor(Color.orange);
+                        int X_to_draw = 170 + (i + 1) * 30;
+                        g.drawString(player1Status, 820, X_to_draw);
+                    }
+                }
+            }
+            if (player2Statuses != null) {
+                if (player2Statuses.size() >= 3) {
+                    int i = 0;
+                    while (i < 3) {
+                        String player2Status = (String) player2Statuses.get(player2Statuses.size() - 1 - i);
+                        g.setColor(Color.black);
+                        int X_to_draw = 520 + (i + 1) * 30;
+                        g.drawString(player2Status, 820, X_to_draw);
+                        i++;
+                    }
+                } else {
+                    for (int i = 0; i < player2Statuses.size(); i++) {
+                        String player2Status = (String) player2Statuses.get(player2Statuses.size() - 1 - i);
+                        g.setColor(Color.black);
+                        int X_to_draw = 520 + (i + 1) * 30;
+                        g.drawString(player2Status, 820, X_to_draw);
+                    }
+                }
+
+            }
+            if (EventAvailable.getInstance().eventTime == false) {
                 g.setColor(Color.BLUE);
                 g.drawString("EVENT: INCOMING", 930, 654);
             }
-        }
-        if (buffDescription.size()>=1){
-            for (int i = 1; i < 4; i ++){
-                String buffDescriptionPl1 = (String) buffDescription.get(buffDescription.size() - i);
-                g.setColor(Color.red);
-                g.drawString(buffDescriptionPl1, 920, 50 + (i-1) * 30);
+            if (EventAvailable.getInstance().eventTime == true) {
+                if (eventLogs.size() >= 1) {
+                    g.setColor(Color.BLACK);
+                    g.drawString("EVENT: " + eventLogs.get(eventLogs.size() - 1), 930, 654);
+                } else {
+                    g.setColor(Color.BLUE);
+                    g.drawString("EVENT: INCOMING", 930, 654);
+                }
+            }
+            if (buffDescription.size() >= 1) {
+                for (int i = 1; i < 4; i++) {
+                    String buffDescriptionPl1 = (String) buffDescription.get(buffDescription.size() - i);
+                    g.setColor(Color.red);
+                    g.drawString(buffDescriptionPl1, 920, 50 + (i - 1) * 30);
+                }
+            }
+            if (buffDescriptionP2.size() >= 1) {
+                for (int i = 1; i < 4; i++) {
+                    String buffDescriptionPl2 = (String) buffDescriptionP2.get(buffDescriptionP2.size() - i);
+                    g.setColor(Color.red);
+                    g.drawString(buffDescriptionPl2, 920, 400 + (i - 1) * 30);
+                }
             }
         }
-        if (buffDescriptionP2.size()>=1){
-            for (int i = 1; i < 4; i ++){
-                String buffDescriptionPl2 = (String) buffDescriptionP2.get(buffDescriptionP2.size() - i);
-                g.setColor(Color.red);
-                g.drawString(buffDescriptionPl2, 920, 400 + (i-1) * 30);
-            }
-        }
-
-
+//*****************
     }
 
     public static void runALL() {

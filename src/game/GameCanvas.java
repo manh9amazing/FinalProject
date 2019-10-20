@@ -9,34 +9,42 @@ import bases.GameObject;
 import bases.KeyPressed;
 import bases.SpriteUtils;
 import entities.*;
+import entities.scene.GameWelcomeScene;
+import entities.scene.SceneManager;
 
 public class GameCanvas extends JPanel {
     Image troll;
     Image trollMessage;
-    Player1 player1;
-    Player1Spell player1Spell;
-    Player2 player2;
-    Player2Spell player2Spell;
-    Supporter1Spawner supporter1Spawner;
-    Supporter2Spawner supporter2Spawner;
-//    Enemy enemy;
-    EnemySpawner enemySpawner;
-    FlagBlockSpawner flagBlockSpawner;
-
-    BuffAvailable buffNotiAndCnt;
+    Image test;
+//
+//    Player1 player1;
+//    Player1Spell player1Spell;
+//    Player2 player2;
+//    Player2Spell player2Spell;
+//    Supporter1Spawner supporter1Spawner;
+//    Supporter2Spawner supporter2Spawner;
+////    Enemy enemy;
+//    EnemySpawner enemySpawner;
+//    FlagBlockSpawner flagBlockSpawner;
+//
+//    BuffAvailable buffNotiAndCnt;
 
     public GameCanvas(){
+        SceneManager.signNewScene(new GameWelcomeScene());
         this.KeyListener();
-        this.player1 = new Player1();
-        this.player1Spell = new Player1Spell();
-        this.player2 = new Player2();
-        this.player2Spell = new Player2Spell();
-        this.supporter1Spawner = new Supporter1Spawner();
-        this.supporter2Spawner = new Supporter2Spawner();
-        this.enemySpawner = new EnemySpawner();
-        this.flagBlockSpawner = new FlagBlockSpawner();
         this.troll = SpriteUtils.loadImage("assets/images/players/straight/100.png");
         this.trollMessage = SpriteUtils.loadImage("assets/images/players/straight/101.png");
+//        this.player1 = new Player1();
+//        this.player1Spell = new Player1Spell();
+//        this.player2 = new Player2();
+//        this.player2Spell = new Player2Spell();
+//        this.supporter1Spawner = new Supporter1Spawner();
+//        this.supporter2Spawner = new Supporter2Spawner();
+//        this.enemySpawner = new EnemySpawner();
+//        this.flagBlockSpawner = new FlagBlockSpawner();
+//        this.troll = SpriteUtils.loadImage("assets/images/players/straight/100.png");
+//        this.trollMessage = SpriteUtils.loadImage("assets/images/players/straight/101.png");
+//        this.test = SpriteUtils.loadImage("assets/images/players/straight/welcomeScene.png");
     }
     private void KeyListener() {
         this.setFocusable(true);
@@ -115,41 +123,42 @@ public class GameCanvas extends JPanel {
     }
     @Override
     protected void paintComponent(Graphics g) {
+        if (!ChangeSceneCnt.getInstance().SceneChanged) {
+            g.setColor(Color.black);
+            g.fillRect(0, 0, 800, 700);
+            g.setColor(Color.GRAY);
+            g.fillRect(0, 320, 800, 40);
+            g.setColor(Color.DARK_GRAY);
+            g.fillRect(800, 0, 400, 340);
+            g.setColor(Color.red);
+            g.drawString("Player 1", 800, 20);
+            g.setColor(Color.cyan);
+            g.drawString("3 Nearest Buff", 800, 170);
+            g.setColor(Color.LIGHT_GRAY);
+            g.fillRect(800, 340, 400, 350);
+            g.setColor(Color.red);
+            g.drawString("Player 2", 800, 370);
+            g.setColor(Color.black);
+            g.drawString("3 Nearest Buff", 800, 520);
 
-
-        g.setColor(Color.black);
-        g.fillRect(0,0,800,700);
-        g.setColor(Color.GRAY);
-        g.fillRect(0,320,800,40);
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(800,0,400,340);
-        g.setColor(Color.red);
-        g.drawString("Player 1", 800,20);
-        g.setColor(Color.cyan);
-        g.drawString("3 Nearest Buff",800,170);
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(800,340,400,350);
-        g.setColor(Color.red);
-        g.drawString("Player 2", 800,370);
-        g.setColor(Color.black);
-        g.drawString("3 Nearest Buff",800,520);
+            if (BuffAvailable.getInstance().buffTime == false) {
+                g.setColor(Color.PINK);
+                g.drawString("BUFF: INCOMING", 930, 330);
+            }
+            if (BuffAvailable.getInstance().buffTime == true) {
+                g.setColor(Color.GREEN);
+                g.drawString("BUFF: GIVING", 930, 330);
+            }
+        }
         GameObject.renderALL(g);
-        if(BuffAvailable.getInstance().buffTime == false) {
-            g.setColor(Color.PINK);
-            g.drawString("BUFF: INCOMING", 930, 330);
-        }
-        if (BuffAvailable.getInstance().buffTime == true) {
-            g.setColor(Color.GREEN);
-            g.drawString("BUFF: GIVING", 930, 330);
-        }
-        if (EventToggle.getInstance().Troll){
+        if (EventToggle.getInstance().Troll) {
             g.setColor(Color.white);
-            g.fillRect(0,0,2000,1000);
-            g.drawImage(troll,0,90,null);
-            g.drawImage(trollMessage,650,0,null);
+            g.fillRect(0, 0, 2000, 1000);
+            g.drawImage(troll, 0, 90, null);
+            g.drawImage(trollMessage, 650, 0, null);
         }
 
-
+//        g.drawImage(this.test,0,0,null);
 
 //test git commit
     }

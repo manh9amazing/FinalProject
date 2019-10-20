@@ -2,23 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/bases/AudioUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/ChangeSceneCnt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/MatchResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/scene/BackgroundEnding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/scene/BackgroundWelcome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/scene/Scene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/scene/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameCanvas.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/BuffToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffToggle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/BuffToggleP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffToggleP2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EventToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventToggle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/GameEndingScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/GameEndingScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/GamePlayScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/GamePlayScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/GameWelcomeScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/GameWelcomeScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player1Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player2Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Scene.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/SceneManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/GameCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameCanvas.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +48,12 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CI-game.iml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/bases" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java\FinalProjectGame\src\bases" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -262,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571503989247</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update: invisible big update">
+      <created>1571543083849</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1571543083850</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,14 +317,15 @@
     <MESSAGE value="update: finishing flagCapture entities" />
     <MESSAGE value="update: finishing flagCapture entities." />
     <MESSAGE value="update: 4.2th day work" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 4.2th day work" />
+    <MESSAGE value="update: invisible big update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: invisible big update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>347</line>
+          <line>352</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
@@ -317,5 +338,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FinalProjectGame$Program.ic" NAME="Program Coverage Results" MODIFIED="1571548970043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

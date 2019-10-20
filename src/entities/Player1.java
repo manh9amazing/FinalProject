@@ -1,6 +1,8 @@
 package entities;
 
 import bases.*;
+import entities.scene.GameEndingScene;
+import entities.scene.SceneManager;
 import org.w3c.dom.events.Event;
 
 import java.awt.*;
@@ -64,6 +66,7 @@ public class Player1 extends GameObject {
     }
     @Override
     public void run() {
+        this.deActiveIfNeeded();
         this.checkBlessings();
         this.checkInvisible();
         if(EventToggle.getInstance().Blessings){
@@ -205,6 +208,19 @@ public class Player1 extends GameObject {
         if (faceDir == 3){
             newSpell.velocity.set(-5,0);
         }
+    }
 
+    @Override
+    public void deActive() {
+        super.deActive();
+        ChangeSceneCnt.getInstance().SceneChanged = true;
+        MatchResult.getInstance().YellowWin = true;
+        SceneManager.signNewScene(new GameEndingScene());
+    }
+
+    public void deActiveIfNeeded(){
+        if(this.HP <= 0 ){
+            this.deActive();
+        }
     }
 }

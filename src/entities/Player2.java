@@ -1,13 +1,18 @@
 package entities;
 
 import bases.*;
+import entities.scene.GameEndingScene;
+import entities.scene.SceneManager;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 
 public class Player2 extends GameObject {
     FrameCounter frameCounter;
     FrameCounter reload;
     int faceDir;
+
+//    Clip clip;
     public Player2(){
         this.ReloadTime =100;
         this.Ammo = 7;
@@ -22,6 +27,7 @@ public class Player2 extends GameObject {
         frameCounter = new FrameCounter(20);
         reload = new FrameCounter(this.ReloadTime);
         this.velocity.set(0,0);
+//        clip = AudioUtils.loadSound("");
     }
     @Override
     public void render(Graphics g) {
@@ -61,6 +67,7 @@ public class Player2 extends GameObject {
     }
     @Override
     public void run() {
+        this.deActiveIfNeeded();
         if(EventToggle.getInstance().Blessings){
             this.HP+= 500;
             this.MaxHP +=500;
@@ -152,6 +159,7 @@ public class Player2 extends GameObject {
             }
             if (this.Ammo > 0) {
                 if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {
+//                    clip.replay(this.clip);
                     this.castSpell();
                     this.Ammo--;
                     frameCounter.reset();
@@ -197,6 +205,20 @@ public class Player2 extends GameObject {
         }
         if (faceDir == 3){
             newSpell.velocity.set(-5,0);
+        }
+    }
+
+    @Override
+    public void deActive() {
+        super.deActive();
+        ChangeSceneCnt.getInstance().SceneChanged = true;
+        MatchResult.getInstance().GreenWin = true;
+        SceneManager.signNewScene(new GameEndingScene());
+    }
+
+    public void deActiveIfNeeded(){
+        if(this.HP <= 0 ){
+            this.deActive();
         }
     }
 }

@@ -9,7 +9,7 @@ public class BuffRandomizeP2 {
     public void run(){
         Random randomMachine = new Random();
         BuffChosen = randomMachine.nextInt(BuffToggle.getInstance().BuffNumber);
-        BuffChosen = 1;
+//        BuffChosen = 1;
 //        System.out.println(BuffChosen);
         if(BuffChosen ==0){
             BuffToggleP2.getInstance().Poisoned = true;
