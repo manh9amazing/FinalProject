@@ -316,6 +316,10 @@ public class GameObject {
     FrameCounter invisibleTime;
 
     public Clip clip;
+    public Clip clipShield;
+    public Clip bossMusic;
+//    public Clip armorMusic;
+
     public Image image;
     public Image shield;
     public Vector2D position;
@@ -334,6 +338,7 @@ public class GameObject {
     public int MaxAmmo;
     public int ReloadTime;
     public int FrozeMusicCnt;
+    public int ShieldBrokenMusicCnt;
 
     public static int Healcnt;
     public static  int HealcntP2;
@@ -346,6 +351,8 @@ public class GameObject {
 
     public GameObject() {
         GameObject.add(this);
+        this.bossMusic = AudioUtils.loadSound("assets/music/sound effects/bossMusic.wav");
+        this.clipShield = AudioUtils.loadSound("assets/music/sound effects/chargeShield.wav");
         this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
         this.position = new Vector2D(0, 0);
         this.velocity = new Vector2D(0, 0);
@@ -354,6 +361,8 @@ public class GameObject {
         this.FlagCaptured = 0;
         this.FlagCapturedP2 = 0;
         this.FrozeMusicCnt = 0;
+        this.ShieldBrokenMusicCnt = 0;
+
         poisonIfNeeded = new FrameCounter(20);
         poisonIfNeededP2 = new FrameCounter(20);
         deFroze = new FrameCounter(50);
@@ -444,6 +453,7 @@ public class GameObject {
 
     public void checkArmorUP() {
         if (BuffToggle.getInstance().ArmorUP) {
+            AudioUtils.replay(clipShield);
             this.Armor +=50;
             this.checkPoisoned();
             BuffToggle.getInstance().ArmorUP = false;
@@ -578,9 +588,10 @@ public class GameObject {
 //            if (!EnemySpawnerToggle.getInstance().Spawned){
 //                System.out.println("ONE TIME SPAWN");
 //            }
+            AudioUtils.loop(bossMusic,3);
             if (enemyFightTime.expired) {
+                AudioUtils.pause(bossMusic);
                 EventToggle.getInstance().StandTogether = false;
-
                 EnemySpawnerToggle.getInstance().Spawned = false;
                 enemyFightTime.reset();
             } else {

@@ -2,6 +2,7 @@ package entities;
 
 import bases.*;
 import entities.scene.GameEndingScene;
+import entities.scene.GamePlayScene;
 import entities.scene.SceneManager;
 import org.w3c.dom.events.Event;
 
@@ -12,7 +13,7 @@ public class Player1 extends GameObject {
     FrameCounter frameCounter;
     FrameCounter reload;
 
-    Clip clipShield;
+
     int faceDir;
     public Player1(){
         this.ReloadTime =100;
@@ -28,6 +29,7 @@ public class Player1 extends GameObject {
         frameCounter = new FrameCounter(20);
         reload = new FrameCounter(this.ReloadTime);
         this.velocity.set(0,0);
+
     }
     @Override
     public void render(Graphics g) {
@@ -56,8 +58,7 @@ public class Player1 extends GameObject {
 
         }
         else {
-            this.clipShield = AudioUtils.loadSound("assets/music/sound effects/shield_broken.wav");
-            AudioUtils.play(clipShield);
+//            AudioUtils.play(clipShield);
             this.Armor = 0;
             g.setFont(new Font("TimesRoman", Font.BOLD, 15));
             g.setColor(Color.YELLOW);
@@ -75,6 +76,10 @@ public class Player1 extends GameObject {
     }
     @Override
     public void run() {
+//        if (this.Armor<= 0 && this.ShieldBrokenMusicCnt<1){
+//            AudioUtils.play(clipShield);
+////            this.ShieldBrokenMusicCnt++;
+//        }
         this.deActiveIfNeeded();
         this.checkBlessings();
         this.checkInvisible();

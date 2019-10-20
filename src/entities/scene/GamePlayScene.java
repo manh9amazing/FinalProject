@@ -1,12 +1,16 @@
 package entities.scene;
 
+import bases.AudioUtils;
 import bases.GameObject;
 import bases.SpriteUtils;
 import entities.*;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 
 public class GamePlayScene extends Scene{
+
+
     Image troll;
     Image trollMessage;
     Image test;
@@ -32,6 +36,7 @@ public class GamePlayScene extends Scene{
         this.supporter2Spawner = new Supporter2Spawner();
         this.enemySpawner = new EnemySpawner();
         this.flagBlockSpawner = new FlagBlockSpawner();
+
         MatchResult.getInstance().GreenWin = false;
         MatchResult.getInstance().YellowWin = false;
     }

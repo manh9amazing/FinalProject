@@ -5,10 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2Spell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/scene/BackgroundWelcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/BackgroundWelcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player2Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/scene/GamePlayScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/GamePlayScene.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -278,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571566345217</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="update: starting sound">
+      <created>1571573044195</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1571573044195</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,14 +327,15 @@
     <MESSAGE value="update: invisible big update" />
     <MESSAGE value="update: game ver 0.9.1" />
     <MESSAGE value="update: game ver 0.9.4 (size text)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: game ver 0.9.4 (size text)" />
+    <MESSAGE value="update: starting sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: starting sound" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>370</line>
+          <line>379</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

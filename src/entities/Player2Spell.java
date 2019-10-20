@@ -2,9 +2,11 @@ package entities;
 
 import bases.*;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 
 public class Player2Spell extends GameObject {
+    Clip clipShield;
     public Player2Spell() {
         this.ExistX = 2;
         this.ExistY = 2;

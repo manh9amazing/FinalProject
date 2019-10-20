@@ -65,7 +65,7 @@ public class Enemy extends GameObject {
             }
         }
 
-
+    @Override
     public void run() {
             this.deActiveIfNeeded();
             if(!shootTime.expired) {
