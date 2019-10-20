@@ -9,7 +9,7 @@ public class EventRandomize {
     public void run(){
         Random randomMachine = new Random();
         EventChosen = randomMachine.nextInt(EventToggle.getInstance().EventNumber);
-        EventChosen = 5;
+        EventChosen = 1;
 //        System.out.println(EventChosen);
         if(EventChosen ==0){
 
@@ -43,6 +43,11 @@ public class EventRandomize {
         if(EventChosen==5){
             EventToggle.getInstance().Blessings = true;
             GameObject.eventLogs.add("Blessings STARTING...");
+        }
+
+        if(EventChosen==6){
+            EventToggle.getInstance().InvisibleBattle = true;
+            GameObject.eventLogs.add("InvisibleBattle STARTING...");
         }
     }
 }

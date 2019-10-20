@@ -17,6 +17,12 @@ public class Player1Spell extends GameObject {
 
     @Override
     public void render(Graphics g) {
+        if(BuffToggle.getInstance().InvisibleBullet){
+            this.image = SpriteUtils.loadImage("assets/images/players/straight/invisible_bullet.png");
+        }
+        else{
+            this.image = SpriteUtils.loadImage("assets/images/enemies/bullets/blue.png");
+        }
         super.render(g);
 //        g.setColor(Color.RED);
 //        g.drawString("ATK: " + this.Spell1ATK, 820, 80 );

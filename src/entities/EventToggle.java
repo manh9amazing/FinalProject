@@ -9,13 +9,14 @@ public class EventToggle {
     public boolean WorldExchange;
     public boolean FlagCapture;
     public boolean Blessings;
+    public boolean InvisibleBattle;
     public int WorldExchangeSubCnt;
     public int BlessingsSubCnt;
 
     private static final EventToggle INSTANCE = new EventToggle();
 
     private EventToggle(){
-        this.EventNumber = 6;
+        this.EventNumber = 7;
 
         this.Troll = false;
         this.SuddenDeath = false;
@@ -23,8 +24,10 @@ public class EventToggle {
         this.WorldExchange = false;
         this.FlagCapture = false;
         this.Blessings = false;
+        this.InvisibleBattle = false;
         this.WorldExchangeSubCnt = 0;
         this.BlessingsSubCnt = 0;
+
 
     }
 

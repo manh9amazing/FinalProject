@@ -105,22 +105,50 @@ public class Player2 extends GameObject {
             if (KeyPressed.getInstance().wPressed) {
                 vy -= 5;
                 faceDir = 0;
-                this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
+                if (!EventToggle.getInstance().InvisibleBattle){
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
+                }
+                else{
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                }
             }
             if (KeyPressed.getInstance().sPressed) {
                 vy += 5;
                 faceDir = 1;
-                this.image = SpriteUtils.loadImage("assets/images/players/straight/13.png");
+                if (!EventToggle.getInstance().InvisibleBattle) {
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/13.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
+                }
+                else{
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                }
             }
             if (KeyPressed.getInstance().dPressed) {
                 vx += 5;
                 faceDir = 2;
-                this.image = SpriteUtils.loadImage("assets/images/players/straight/14.png");
+                if (!EventToggle.getInstance().InvisibleBattle) {
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/14.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
+                }
+                else{
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                }
             }
             if (KeyPressed.getInstance().aPressed) {
                 vx -= 5;
                 faceDir = 3;
-                this.image = SpriteUtils.loadImage("assets/images/players/straight/15.png");
+                if (!EventToggle.getInstance().InvisibleBattle) {
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/15.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
+                }
+                else{
+                    this.image = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                    this.shield = SpriteUtils.loadImage("assets/images/players/straight/invisible_player.png");
+                }
             }
             if (this.Ammo > 0) {
                 if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {

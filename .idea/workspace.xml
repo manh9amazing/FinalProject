@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="update: finishing flagCapture entities.">
+    <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
@@ -15,13 +15,10 @@
       <change beforePath="$PROJECT_DIR$/src/entities/BuffToggleP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffToggleP2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/EventToggle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventToggle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/FlagBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/FlagBlockSpawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player2Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/RewardCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/RewardCondition.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571479425387</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update: 4.2th day work">
+      <created>1571503989247</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1571503989247</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,14 +296,15 @@
     <MESSAGE value="update: start flagCapture entities" />
     <MESSAGE value="update: finishing flagCapture entities" />
     <MESSAGE value="update: finishing flagCapture entities." />
-    <option name="LAST_COMMIT_MESSAGE" value="update: finishing flagCapture entities." />
+    <MESSAGE value="update: 4.2th day work" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 4.2th day work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>345</line>
+          <line>347</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

@@ -9,7 +9,7 @@ public class BuffRandomize {
     public void run() {
         Random randomMachine = new Random();
         BuffChosen = randomMachine.nextInt(BuffToggle.getInstance().BuffNumber);
-        BuffChosen = 8;
+        BuffChosen = 1;
 //        System.out.println(BuffChosen);
         if (BuffChosen == 0) {
             BuffToggle.getInstance().Poisoned = true;
@@ -91,6 +91,15 @@ public class BuffRandomize {
             BuffToggle.getInstance().PoisonousBullet = true;
             GameObject.player1Statuses.add("PoisonousBullet");
             String newDescription = "Your bullets have @ err..... @ POISON";
+            String[] arrOfStr = newDescription.split("@", 5);
+            for (int i = 1; i < arrOfStr.length + 1; i++) {
+                GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);
+            }
+        }
+        if (BuffChosen == 9){
+            BuffToggle.getInstance().InvisibleBullet = true;
+            GameObject.player1Statuses.add("InvisibleBullet");
+            String newDescription = "Enemy cant see @ your bullets @ Hahaha!!!";
             String[] arrOfStr = newDescription.split("@", 5);
             for (int i = 1; i < arrOfStr.length + 1; i++) {
                 GameObject.buffDescription.add(arrOfStr[arrOfStr.length - i]);

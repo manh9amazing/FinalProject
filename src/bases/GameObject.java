@@ -294,6 +294,7 @@ public class GameObject {
     FrameCounter trollTime;
     FrameCounter enemyFightTime;
     FrameCounter flagCaptureTime;
+    FrameCounter invisibleTime;
 
     public Image image;
     public Image shield;
@@ -338,6 +339,7 @@ public class GameObject {
         trollTime = new FrameCounter(350);
         this.enemyFightTime = new FrameCounter(800);
         this.flagCaptureTime = new FrameCounter(500);
+        this.invisibleTime = new FrameCounter(800);
         //1400/1600-runner
         String s = 5 + "";
     }
@@ -575,7 +577,16 @@ public class GameObject {
         }
     }
 
-
+    public void checkInvisible(){
+        if(EventToggle.getInstance().InvisibleBattle){
+            if (invisibleTime.expired) {
+                EventToggle.getInstance().InvisibleBattle = false;
+                invisibleTime.reset();
+            } else {
+                invisibleTime.run();
+            }
+        }
+    }
 
 }
 

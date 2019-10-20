@@ -12,11 +12,12 @@ public class BuffToggleP2 {
     public boolean Berserk;
     public boolean ArmorUP;
     public boolean PoisonousBullet;
+    public boolean InvisibleBullet;
 
     private static final BuffToggleP2 INSTANCE = new BuffToggleP2();
 
     private BuffToggleP2(){
-        this.BuffNumber = 9;
+        this.BuffNumber = 10;
 
         this.Frozen = false;
         this.InstantHeal = false;
@@ -27,7 +28,7 @@ public class BuffToggleP2 {
         this.Berserk = false;
         this.ArmorUP = false;
         this.PoisonousBullet = false;
-
+        this.InvisibleBullet = false;
     }
 
     public static BuffToggleP2 getInstance(){
