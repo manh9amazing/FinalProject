@@ -9,45 +9,43 @@ public class EventRandomize {
     public void run(){
         Random randomMachine = new Random();
         EventChosen = randomMachine.nextInt(EventToggle.getInstance().EventNumber);
-        EventChosen = 3;
+        EventChosen = 6;
 //        System.out.println(EventChosen);
         if(EventChosen ==0){
-
             EventToggle.getInstance().Troll = true;
-            GameObject.eventLogs.add("Troll");
+            GameObject.eventLogs.add("Troll ");
         }
         if(EventChosen ==1){
 
             EventToggle.getInstance().SuddenDeath= true;
-            GameObject.eventLogs.add("SuddenDeath STARTING...");
+            GameObject.eventLogs.add("SuddenDeath ");
         }
         if(EventChosen==2){
             RewardCondition.getInstance().Enemy1Defeated=false;
             RewardCondition.getInstance().Enemy2Defeated=false;
             RewardCondition.getInstance().PlayerGivenBonus = 0;
             EventToggle.getInstance().StandTogether = true;
-            GameObject.eventLogs.add("StandTogether STARTING...");
+            GameObject.eventLogs.add("StandTogether ");
         }
         if(EventChosen==3){
 
             EventToggle.getInstance().WorldExchange = true;
             MapState.getInstance().MapReverse = !MapState.getInstance().MapReverse;
             EventToggle.getInstance().WorldExchangeSubCnt = 0;
-            GameObject.eventLogs.add("WorldExchange STARTING...");
+            GameObject.eventLogs.add("WorldExchange ");
         }
         if(EventChosen==4){
             EventToggle.getInstance().FlagCapture = true;
-            GameObject.eventLogs.add("FlagCapture STARTING...");
+            GameObject.eventLogs.add("FlagCapture ");
         }
-
         if(EventChosen==5){
             EventToggle.getInstance().Blessings = true;
-            GameObject.eventLogs.add("Blessings STARTING...");
+            GameObject.eventLogs.add("Blessings ");
         }
-
         if(EventChosen==6){
             EventToggle.getInstance().InvisibleBattle = true;
-            GameObject.eventLogs.add("InvisibleBattle STARTING...");
+            GameObject.eventLogs.add("InvisibleBattle ");
         }
+
     }
 }

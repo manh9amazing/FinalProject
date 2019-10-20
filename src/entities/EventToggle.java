@@ -27,8 +27,6 @@ public class EventToggle {
         this.InvisibleBattle = false;
         this.WorldExchangeSubCnt = 0;
         this.BlessingsSubCnt = 0;
-
-
     }
 
     public static EventToggle getInstance(){

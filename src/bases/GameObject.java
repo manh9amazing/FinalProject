@@ -83,7 +83,9 @@ public class GameObject {
                         String player1Status = (String) player1Statuses.get(player1Statuses.size() - 1 - i);
                         g.setColor(Color.orange);
                         int X_to_draw = 170 + (i + 1) * 30;
-                        g.drawString(player1Status, 820, X_to_draw);
+                        String s = (i+1) +"";
+                        g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+                        g.drawString(s + ". "+ player1Status, 820, X_to_draw);
                         i++;
                     }
                 } else {
@@ -91,7 +93,9 @@ public class GameObject {
                         String player1Status = (String) player1Statuses.get(player1Statuses.size() - 1 - i);
                         g.setColor(Color.orange);
                         int X_to_draw = 170 + (i + 1) * 30;
-                        g.drawString(player1Status, 820, X_to_draw);
+                        String s = (i+1) +"";
+                        g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+                        g.drawString(s+ ". "+player1Status, 820, X_to_draw);
                     }
                 }
             }
@@ -101,8 +105,10 @@ public class GameObject {
                     while (i < 3) {
                         String player2Status = (String) player2Statuses.get(player2Statuses.size() - 1 - i);
                         g.setColor(Color.black);
+                        g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
                         int X_to_draw = 520 + (i + 1) * 30;
-                        g.drawString(player2Status, 820, X_to_draw);
+                        String s = (i+1) +"";
+                        g.drawString(s+". "+player2Status, 820, X_to_draw);
                         i++;
                     }
                 } else {
@@ -110,36 +116,43 @@ public class GameObject {
                         String player2Status = (String) player2Statuses.get(player2Statuses.size() - 1 - i);
                         g.setColor(Color.black);
                         int X_to_draw = 520 + (i + 1) * 30;
-                        g.drawString(player2Status, 820, X_to_draw);
+                        g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+                        String s = (i+1) +"";
+                        g.drawString(s+". "+player2Status, 820, X_to_draw);
                     }
                 }
 
             }
             if (EventAvailable.getInstance().eventTime == false) {
                 g.setColor(Color.BLUE);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
                 g.drawString("EVENT: INCOMING", 930, 654);
             }
             if (EventAvailable.getInstance().eventTime == true) {
                 if (eventLogs.size() >= 1) {
                     g.setColor(Color.BLACK);
-                    g.drawString("EVENT: " + eventLogs.get(eventLogs.size() - 1), 930, 654);
+                    g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+                    g.drawString("EVENT: " + eventLogs.get(eventLogs.size() - 1), 820, 654);
                 } else {
                     g.setColor(Color.BLUE);
+                    g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
                     g.drawString("EVENT: INCOMING", 930, 654);
                 }
             }
             if (buffDescription.size() >= 1) {
-                for (int i = 1; i < 4; i++) {
+                for (int i = 1; i < 5; i++) {
                     String buffDescriptionPl1 = (String) buffDescription.get(buffDescription.size() - i);
                     g.setColor(Color.red);
-                    g.drawString(buffDescriptionPl1, 920, 50 + (i - 1) * 30);
+                    g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+                    g.drawString(buffDescriptionPl1, 960, 50 + (i - 1) * 30);
                 }
             }
             if (buffDescriptionP2.size() >= 1) {
-                for (int i = 1; i < 4; i++) {
+                for (int i = 1; i < 5; i++) {
                     String buffDescriptionPl2 = (String) buffDescriptionP2.get(buffDescriptionP2.size() - i);
                     g.setColor(Color.red);
-                    g.drawString(buffDescriptionPl2, 920, 400 + (i - 1) * 30);
+                    g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+                    g.drawString(buffDescriptionPl2, 960, 400 + (i - 1) * 30);
                 }
             }
         }

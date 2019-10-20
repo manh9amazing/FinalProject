@@ -11,7 +11,7 @@ public class EventRunner {
     FrameCounter littleDelay;
     public EventRunner (){
         this.eventTimeComing = new FrameCounter(1000);
-        this.littleDelay = new FrameCounter(50);
+        this.littleDelay = new FrameCounter(500);
     }
 
     public void run() {

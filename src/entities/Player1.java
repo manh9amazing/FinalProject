@@ -16,8 +16,8 @@ public class Player1 extends GameObject {
         this.Ammo = 6;
         this.MaxAmmo = 8;
 //        this.ATK = 100;
-        this.MaxHP =30;
-        this.HP = 15;
+        this.MaxHP =1600;
+        this.HP = 1400;
         this.Armor = 5;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/8.png");
         this.position = new Vector2D(200,200);
@@ -28,13 +28,15 @@ public class Player1 extends GameObject {
     }
     @Override
     public void render(Graphics g) {
-
+        g.setFont(new Font("TimesRoman", Font.BOLD, 15));
         g.setColor(Color.RED);
         g.drawString("HP: " + this.HP + " / "+ this.MaxHP, 820, 50 );
+        g.setFont(new Font("TimesRoman", Font.BOLD, 15));
         g.setColor(Color.RED);
         g.drawString("ATK: " + Player1Spell.Spell1ATK, 820, 80 );
         if(this.Armor>0){
             g.setColor(Color.YELLOW);
+            g.setFont(new Font("TimesRoman", Font.BOLD, 15));
             g.drawString("ARMOR: " + this.Armor, 820, 110 );
             if(faceDir==0) {
                 g.drawImage(this.shield, (int) (this.position.x - 6.25), (int) this.position.y, null);
@@ -52,13 +54,15 @@ public class Player1 extends GameObject {
         }
         else {
             this.Armor = 0;
+            g.setFont(new Font("TimesRoman", Font.BOLD, 15));
             g.setColor(Color.YELLOW);
             g.drawString("ARMOR: BROKEN", 820,110 );
         }
-        if (this.Ammo>0){
+        if (this.Ammo>0){ g.setFont(new Font("TimesRoman", Font.BOLD, 15));
         g.setColor(Color.BLUE);
         g.drawString("AMMO: " + this.Ammo + " / "+ this.MaxAmmo, 820, 140 );}
         else{
+            g.setFont(new Font("TimesRoman", Font.BOLD, 15));
             g.setColor(Color.BLUE);
             g.drawString("AMMO: RELOADING" , 820, 140 );
         }
