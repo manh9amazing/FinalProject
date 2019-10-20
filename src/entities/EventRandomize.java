@@ -9,7 +9,7 @@ public class EventRandomize {
     public void run(){
         Random randomMachine = new Random();
         EventChosen = randomMachine.nextInt(EventToggle.getInstance().EventNumber);
-        EventChosen = 2;
+        EventChosen = 4;
 //        System.out.println(EventChosen);
         if(EventChosen ==0){
             EventToggle.getInstance().Troll = true;

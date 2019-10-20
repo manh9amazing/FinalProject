@@ -3,6 +3,7 @@ package game;
 import bases.GameObject;
 import entities.BuffAvailable;
 import entities.BuffRunner;
+import entities.ChangeSceneCnt;
 import entities.EventRunner;
 
 import javax.swing.*;
@@ -29,8 +30,14 @@ public class GameWindow extends JFrame {
     public void gameLoop(){
         while(true){
             GameObject.runALL();
-            runner.run();
-            runnerEvent.run();
+            if (!ChangeSceneCnt.getInstance().SceneChanged) {
+                runner.run();
+                runnerEvent.run();
+            }
+            else {
+                runner.reset();
+                runnerEvent.reset();
+            }
             this.canvas.repaint();
             try {
                 Thread.sleep(17);

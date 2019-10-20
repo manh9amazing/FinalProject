@@ -20,8 +20,8 @@ public class Player1 extends GameObject {
         this.Ammo = 6;
         this.MaxAmmo = 8;
 //        this.ATK = 100;
-        this.MaxHP =1600;
-        this.HP = 1400;
+        this.MaxHP =30;
+        this.HP = 15;
         this.Armor = 5;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/8.png");
         this.position = new Vector2D(200,200);
@@ -80,7 +80,7 @@ public class Player1 extends GameObject {
 //            AudioUtils.play(clipShield);
 ////            this.ShieldBrokenMusicCnt++;
 //        }
-        this.deActiveIfNeeded();
+//        this.deActiveIfNeeded();
         this.checkBlessings();
         this.checkInvisible();
         if(EventToggle.getInstance().Blessings){

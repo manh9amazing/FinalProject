@@ -157,6 +157,12 @@ public class GameObject {
                 }
             }
         }
+        else{
+            player1Statuses.clear();
+            player2Statuses.clear();
+            buffDescription.clear();
+            buffDescriptionP2.clear();
+        }
 //*****************
     }
 
@@ -351,6 +357,8 @@ public class GameObject {
 
     public GameObject() {
         GameObject.add(this);
+        this.Spell1ATK = 25;
+
         this.bossMusic = AudioUtils.loadSound("assets/music/sound effects/bossMusic.wav");
         this.clipShield = AudioUtils.loadSound("assets/music/sound effects/chargeShield.wav");
         this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");

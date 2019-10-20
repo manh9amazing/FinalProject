@@ -29,4 +29,9 @@ public class BuffRunner {
             buffTimeComing.run();
         }
     }
+    public void reset(){
+        BuffAvailable.getInstance().buffTime = false;
+        littleDelay.reset();
+        buffTimeComing.reset();
+    }
 }

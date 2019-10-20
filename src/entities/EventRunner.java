@@ -31,4 +31,10 @@ public class EventRunner {
             eventTimeComing.run();
         }
     }
+
+    public  void  reset(){
+        EventAvailable.getInstance().eventTime = false;
+        littleDelay.reset();
+        eventTimeComing.reset();
+    }
 }
