@@ -5,11 +5,14 @@ import entities.scene.GameEndingScene;
 import entities.scene.SceneManager;
 import org.w3c.dom.events.Event;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 
 public class Player1 extends GameObject {
     FrameCounter frameCounter;
     FrameCounter reload;
+
+    Clip clipShield;
     int faceDir;
     public Player1(){
         this.ReloadTime =100;
@@ -53,6 +56,8 @@ public class Player1 extends GameObject {
 
         }
         else {
+            this.clipShield = AudioUtils.loadSound("assets/music/sound effects/shield_broken.wav");
+            AudioUtils.play(clipShield);
             this.Armor = 0;
             g.setFont(new Font("TimesRoman", Font.BOLD, 15));
             g.setColor(Color.YELLOW);

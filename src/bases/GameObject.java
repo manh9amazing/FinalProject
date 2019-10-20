@@ -3,6 +3,7 @@ package bases;
 
 import entities.*;
 
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -314,6 +315,7 @@ public class GameObject {
     FrameCounter flagCaptureTime;
     FrameCounter invisibleTime;
 
+    public Clip clip;
     public Image image;
     public Image shield;
     public Vector2D position;
@@ -331,6 +333,8 @@ public class GameObject {
     public int Ammo;
     public int MaxAmmo;
     public int ReloadTime;
+    public int FrozeMusicCnt;
+
     public static int Healcnt;
     public static  int HealcntP2;
     public static int FlagCaptured;
@@ -349,6 +353,7 @@ public class GameObject {
         this.isActive = true;
         this.FlagCaptured = 0;
         this.FlagCapturedP2 = 0;
+        this.FrozeMusicCnt = 0;
         poisonIfNeeded = new FrameCounter(20);
         poisonIfNeededP2 = new FrameCounter(20);
         deFroze = new FrameCounter(50);
@@ -410,10 +415,12 @@ public class GameObject {
 
     public void checkInstantHeal() {
         if (BuffToggle.getInstance().InstantHeal) {
+            this.clip = AudioUtils.loadSound("assets/music/sound effects/heal.wav");
             this.checkPoisoned();
             System.out.println(Healcnt);
             Healcnt++;
             if (Healcnt==2) {
+                AudioUtils.play(clip);
                 this.HP += 10;
                 if (this.HP > this.MaxHP) {
                     this.HP = this.MaxHP;
@@ -454,9 +461,16 @@ public class GameObject {
 
     public void checkFrozen() {
         if (BuffToggle.getInstance().Frozen) {
+            if(this.FrozeMusicCnt<1){
+                this.clip = AudioUtils.loadSound("assets/music/sound effects/freeze.wav");
+                AudioUtils.play(clip);
+                this.FrozeMusicCnt++;
+            }
             if (deFroze.expired) {
                 BuffToggle.getInstance().Frozen = false;
                 deFroze.reset();
+                AudioUtils.pause(clip);
+                this.FrozeMusicCnt= 0;
             } else {
                 deFroze.run();
             }
