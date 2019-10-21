@@ -36,7 +36,7 @@ public class FlagBlockSpawner extends  GameObject {
                 newFlagBLock.pointCounted = false;
             }
             FlagBlockSpawnerToggle.getInstance().Spawned = true;
-//            RewardCondition.getInstance().PlayerFlagBonus = 0;
+            RewardCondition.getInstance().PlayerFlagBonus = 0;
         }
     }
 }

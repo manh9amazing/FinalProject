@@ -61,7 +61,7 @@ public class Supporter2 extends GameObject {
             }
 
             if (this.Ammo > 0) {
-                if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {
+                if (KeyPressed.getInstance().spacePressed && frameCounter.expired) {
                     this.castSpell();
                     this.Ammo--;
                     frameCounter.reset();

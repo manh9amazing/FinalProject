@@ -8,8 +8,8 @@ public class BuffRunner {
     FrameCounter buffTimeComing;
     FrameCounter littleDelay;
     public BuffRunner(){
-        this.buffTimeComing = new FrameCounter(300);
-        this.littleDelay = new FrameCounter(50);
+        this.buffTimeComing = new FrameCounter(1000);
+        this.littleDelay = new FrameCounter(100);
     }
 
     public void run() {

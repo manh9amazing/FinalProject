@@ -10,7 +10,6 @@ public class Player2Spell extends GameObject {
     public Player2Spell() {
         this.ExistX = 2;
         this.ExistY = 2;
-        this.Spell2ATK = 10;
         this.image = SpriteUtils.loadImage("assets/images/enemies/bullets/red.png");
         this.position = new Vector2D();
         this.velocity.set(0, -20);
@@ -54,6 +53,7 @@ public class Player2Spell extends GameObject {
         this.deActiveIfNeeded();
         Player1 player1 = GameObject.checkCollider(this, Player1.class);
         if (player1 != null ){
+            AudioUtils.replay(getHit);
             if (BuffToggleP2.getInstance().PoisonousBullet){
                 BuffToggle.getInstance().Poisoned = true;
             }

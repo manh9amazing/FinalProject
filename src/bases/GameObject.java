@@ -174,6 +174,7 @@ public class GameObject {
 //                  EventToggle.getInstance().WorldExchangeSubCnt<2 &&
                     EventToggle.getInstance().WorldExchange &&
                     MapState.getInstance().MapReverse){
+                    AudioUtils.replay(worldChanging);
                     if(gameObject instanceof Player1){
                         gameObject.position.x = 500;
                         gameObject.position.y = 500;
@@ -198,6 +199,7 @@ public class GameObject {
 //                        EventToggle.getInstance().WorldExchangeSubCnt<2 &&
                         EventToggle.getInstance().WorldExchange &&
                         !MapState.getInstance().MapReverse){
+                    AudioUtils.replay(worldChanging);
                     //ko co bug do may tinh ko phat hien ra truong hop chuyen giua true/false
                     if(gameObject instanceof Player1){
                         gameObject.position.x = 200;
@@ -323,8 +325,10 @@ public class GameObject {
 
     public Clip clip;
     public Clip clipShield;
-    public Clip bossMusic;
-//    public Clip armorMusic;
+    public Clip shooting;
+    public Clip getHit;
+    public Clip fire;
+    public static Clip  worldChanging;
 
     public Image image;
     public Image shield;
@@ -348,6 +352,7 @@ public class GameObject {
     public int ReloadTime;
     public int FrozeMusicCnt;
     public int ShieldBrokenMusicCnt;
+    public int FrozeMusicCntP2;
 
     public static int Healcnt;
     public static  int HealcntP2;
@@ -355,15 +360,19 @@ public class GameObject {
     public static int FlagCapturedP2;
 
     public static int SupporterCnt;
-    public static  int SupporterP2Cnt;
+    public static int SupporterP2Cnt;
 
 
     public GameObject() {
         GameObject.add(this);
 //        this.Spell1ATK = 25;
         this.musicOn = true;
-        this.bossMusic = AudioUtils.loadSound("assets/music/sound effects/bossMusic.wav");
+        this.clip = AudioUtils.loadSound("assets/music/sound effects/heal.wav");
+        this.worldChanging = AudioUtils.loadSound("assets/music/sound effects/worldChanging.wav");
+        this.fire = AudioUtils.loadSound("assets/music/sound effects/fire.wav");
+        this.shooting = AudioUtils.loadSound("assets/music/sound effects/shooting_short.wav");
         this.clipShield = AudioUtils.loadSound("assets/music/sound effects/chargeShield.wav");
+        this.getHit = AudioUtils.loadSound("assets/music/sound effects/get_hit.wav");
         this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
         this.position = new Vector2D(0, 0);
         this.velocity = new Vector2D(0, 0);
@@ -378,11 +387,11 @@ public class GameObject {
         poisonIfNeededP2 = new FrameCounter(20);
         deFroze = new FrameCounter(50);
         deFrozeP2 = new FrameCounter(50);
-        eventLasting = new FrameCounter(200);
+        eventLasting = new FrameCounter(1600);
         trollTime = new FrameCounter(350);
-        this.enemyFightTime = new FrameCounter(800);
-        this.flagCaptureTime = new FrameCounter(500);
-        this.invisibleTime = new FrameCounter(800);
+        this.enemyFightTime = new FrameCounter(1100);
+        this.flagCaptureTime = new FrameCounter(800);
+        this.invisibleTime = new FrameCounter(1000);
         //1400/1600-runner
         String s = 5 + "";
     }
@@ -435,13 +444,12 @@ public class GameObject {
 
     public void checkInstantHeal() {
         if (BuffToggle.getInstance().InstantHeal) {
-            this.clip = AudioUtils.loadSound("assets/music/sound effects/heal.wav");
             this.checkPoisoned();
-            System.out.println(Healcnt);
+//            System.out.println(Healcnt);
             Healcnt++;
             if (Healcnt==2) {
-                AudioUtils.play(clip);
-                this.HP += 10;
+                AudioUtils.replay(clip);
+                this.HP += 300;
                 if (this.HP > this.MaxHP) {
                     this.HP = this.MaxHP;
                 }
@@ -517,7 +525,8 @@ public class GameObject {
             this.checkPoisonedP2();
             HealcntP2++;
             if (HealcntP2==2) {
-                this.HP += 10;
+                AudioUtils.replay(clip);
+                this.HP += 300;
                 if (this.HP > this.MaxHP) {
                     this.HP = this.MaxHP;
                 }
@@ -539,6 +548,7 @@ public class GameObject {
 
     public void checkArmorUPP2() {
         if (BuffToggleP2.getInstance().ArmorUP) {
+            AudioUtils.replay(clipShield);
             this.Armor +=30;
             this.checkPoisonedP2();
             BuffToggleP2.getInstance().ArmorUP = false;
@@ -556,9 +566,16 @@ public class GameObject {
 
     public void checkFrozenP2() {
         if (BuffToggleP2.getInstance().Frozen) {
+            if(this.FrozeMusicCntP2<1){
+                this.clip = AudioUtils.loadSound("assets/music/sound effects/freeze.wav");
+                AudioUtils.play(clip);
+                this.FrozeMusicCntP2++;
+            }
             if (deFrozeP2.expired) {
                 BuffToggleP2.getInstance().Frozen = false;
                 deFrozeP2.reset();
+                AudioUtils.pause(clip);
+                this.FrozeMusicCntP2= 0;
             } else {
                 deFrozeP2.run();
             }
@@ -601,7 +618,6 @@ public class GameObject {
 //            }
 //            AudioUtils.loop(bossMusic,3);
             if (enemyFightTime.expired) {
-                AudioUtils.pause(bossMusic);
                 EventToggle.getInstance().StandTogether = false;
                 EnemySpawnerToggle.getInstance().Spawned = false;
                 enemyFightTime.reset();
@@ -643,6 +659,8 @@ public class GameObject {
     }
 
     public void resetToggle(){
+        this.SupporterCnt = 0;
+        this.SupporterP2Cnt = 0;
         BuffToggle.getInstance().InvisibleBullet = false;
         BuffToggle.getInstance().PoisonousBullet = false;
         BuffToggle.getInstance().Berserk = false;
@@ -654,10 +672,22 @@ public class GameObject {
         BuffToggle.getInstance().Excaliburn = false;
         BuffToggle.getInstance().PiercingSpell = false;
         EventToggle.getInstance().StandTogether = false;
-    }
-
-    public void turnOffMusic(){
-        AudioUtils.pause(bossMusic);
+        EventToggle.getInstance().InvisibleBattle = false;
+        EventToggle.getInstance().Blessings = false;
+        EventToggle.getInstance().FlagCapture = false;
+        EventToggle.getInstance().WorldExchange = false;
+        EventToggle.getInstance().Troll = false;
+        EventToggle.getInstance().SuddenDeath = false;
+        BuffToggleP2.getInstance().InvisibleBullet = false;
+        BuffToggleP2.getInstance().PoisonousBullet = false;
+        BuffToggleP2.getInstance().Berserk = false;
+        BuffToggleP2.getInstance().ArmorUP = false;
+        BuffToggleP2.getInstance().SupporterSummon = false;
+        BuffToggleP2.getInstance().Frozen = false;
+        BuffToggleP2.getInstance().Poisoned =false;
+        BuffToggleP2.getInstance().InstantHeal = false;
+        BuffToggleP2.getInstance().Excaliburn = false;
+        BuffToggleP2.getInstance().PiercingSpell = false;
     }
 
 }

@@ -9,7 +9,7 @@ public class EventRandomize {
     public void run(){
         Random randomMachine = new Random();
         EventChosen = randomMachine.nextInt(EventToggle.getInstance().EventNumber);
-        EventChosen = 2;
+//        EventChosen = 5;
 //        System.out.println(EventChosen);
         if(EventChosen ==0){
             EventToggle.getInstance().Troll = true;
@@ -28,7 +28,6 @@ public class EventRandomize {
             GameObject.eventLogs.add("StandTogether ");
         }
         if(EventChosen==3){
-
             EventToggle.getInstance().WorldExchange = true;
             MapState.getInstance().MapReverse = !MapState.getInstance().MapReverse;
             EventToggle.getInstance().WorldExchangeSubCnt = 0;

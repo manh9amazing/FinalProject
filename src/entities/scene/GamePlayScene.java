@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 import java.awt.*;
 
 public class GamePlayScene extends Scene{
-
+    public BackgroundGamePlay backgroundGamePlay;
 
     Image troll;
     Image trollMessage;
@@ -36,13 +36,14 @@ public class GamePlayScene extends Scene{
         this.supporter2Spawner = new Supporter2Spawner();
         this.enemySpawner = new EnemySpawner();
         this.flagBlockSpawner = new FlagBlockSpawner();
-
+        BackgroundGamePlay backgroundGamePlay = new BackgroundGamePlay();
         MatchResult.getInstance().GreenWin = false;
         MatchResult.getInstance().YellowWin = false;
     }
 
     @Override
     public void clear() {
+//        AudioUtils.pause(backgroundGamePlay.bossMusic);
         GameObject.clear();
     }
 }

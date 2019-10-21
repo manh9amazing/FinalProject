@@ -68,15 +68,11 @@ public class Enemy extends GameObject {
 
     @Override
     public void run() {
-            if(musicOn) {
-                AudioUtils.replay(bossMusic);
-                System.out.println("XXXXXHGJGKGKGKGK");
-                musicOn = false;
-            }
             this.deActiveIfNeeded();
             if(!shootTime.expired) {
                 if (isShooting == 20) {
                     this.castSpell();
+
                     isShooting = 0;
                     this.shootTime.run();
                 } else {
@@ -131,15 +127,12 @@ public class Enemy extends GameObject {
 
     @Override
     public void deActive() {
-
         super.deActive();
     }
 
     public  void deActiveIfNeeded(){
         if (!EventToggle.getInstance().StandTogether){
             this.deActive();
-            AudioUtils.pause(this.bossMusic);
-            System.out.println("dang tat");
         }
     }
 

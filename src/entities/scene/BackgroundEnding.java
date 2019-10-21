@@ -22,7 +22,8 @@ public class BackgroundEnding extends GameObject {
     @Override
     public void run() {
         //c2 frameCounter
-        this.turnOffMusic();
+//        this.turnOffMusic();
+//        System.out.println("dang tat");
         AudioUtils.loopForever(clip);
         if (KeyPressed.getInstance().anyKeyPressed){
             AudioUtils.pause(clip);

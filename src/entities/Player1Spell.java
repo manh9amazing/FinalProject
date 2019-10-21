@@ -54,6 +54,7 @@ public class Player1Spell extends GameObject {
         this.deActiveIfNeeded();
         Player2 player2 = GameObject.checkCollider(this, Player2.class);
         if (player2 != null ){
+            AudioUtils.replay(getHit);
             if (BuffToggle.getInstance().PoisonousBullet){
                 BuffToggleP2.getInstance().Poisoned = true;
             }

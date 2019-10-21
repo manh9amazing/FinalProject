@@ -17,10 +17,11 @@ public class Player2 extends GameObject {
         this.ReloadTime =100;
         this.Ammo = 7;
         this.MaxAmmo =10;
-        this.Armor = 9;
+        this.Armor = 65;
 //        this.ATK = 100;
-        this.MaxHP =1250;
+        this.MaxHP =1100;
         this.HP = 1000;
+        this.Spell2ATK = 40;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/12.png");
         this.position = new Vector2D(500,500);
         this.boxCollider = new BoxCollider(this, 50, 50);
@@ -84,6 +85,7 @@ public class Player2 extends GameObject {
 //        this.checkTroll();
         if (!EventToggle.getInstance().FlagCapture&&
                 RewardCondition.getInstance().PlayerFlagBonus<2){
+            System.out.println("OKOKOK");
             this.MaxHP +=this.FlagCapturedP2*100;
             this.HP+= this.FlagCapturedP2*100;
             this.Spell2ATK +=this.FlagCapturedP2*100;
@@ -164,9 +166,15 @@ public class Player2 extends GameObject {
                 }
             }
             if (this.Ammo > 0) {
-                if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {
+                if (KeyPressed.getInstance().spacePressed && frameCounter.expired) {
 //                    clip.replay(this.clip);
                     this.castSpell();
+                    if(this.Spell2ATK>=999){
+                        AudioUtils.replay(fire);
+                    }
+                    else {
+                        AudioUtils.replay(shooting);
+                    }
                     this.Ammo--;
                     frameCounter.reset();
                 } else {

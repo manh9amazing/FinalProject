@@ -20,10 +20,10 @@ public class Player1 extends GameObject {
         this.Ammo = 6;
         this.MaxAmmo = 8;
 //        this.ATK = 100;
-        this.Spell1ATK = 10;
-        this.MaxHP =40;
-        this.HP = 40;
-        this.Armor = 5;
+        this.Spell1ATK = 50;
+        this.MaxHP =1000;
+        this.HP = 900;
+        this.Armor = 50;
         this.image = SpriteUtils.loadImage("assets/images/players/straight/8.png");
         this.position = new Vector2D(200,200);
         this.boxCollider = new BoxCollider(this, 50, 50);
@@ -83,6 +83,7 @@ public class Player1 extends GameObject {
 //        }
         this.deActiveIfNeeded();
         this.checkBlessings();
+        this.checkFlagCapture();
         this.checkInvisible();
         if(EventToggle.getInstance().Blessings){
             this.HP+= 500;
@@ -94,6 +95,7 @@ public class Player1 extends GameObject {
         if (!EventToggle.getInstance().FlagCapture&&
                 RewardCondition.getInstance().PlayerFlagBonus<2){
 //            System.out.println(this.FlagCaptured);
+            System.out.println("OKOKOK");
             this.MaxHP +=this.FlagCaptured*100;
             this.HP+= this.FlagCaptured*100;
             this.Spell1ATK +=this.FlagCaptured*100;
@@ -119,7 +121,7 @@ public class Player1 extends GameObject {
             this.Spell1ATK += 50;
             RewardCondition.getInstance().Enemy1Defeated=false;
         }
-        this.checkFlagCapture();
+
         this.checkTroll();
         this.EventActivator();
         this.BuffActivator();
@@ -175,8 +177,14 @@ public class Player1 extends GameObject {
             }
 
             if (this.Ammo > 0) {
-                if (KeyPressed.getInstance().spacePressed && frameCounter.expired) {
+                if (KeyPressed.getInstance().enterPressed && frameCounter.expired) {
                     this.castSpell();
+                    if(this.Spell1ATK>=999){
+                        AudioUtils.replay(fire);
+                    }
+                    else {
+                        AudioUtils.replay(shooting);
+                    }
                     this.Ammo--;
                     frameCounter.reset();
                 } else {
@@ -230,13 +238,12 @@ public class Player1 extends GameObject {
         super.deActive();
         ChangeSceneCnt.getInstance().SceneChanged = true;
         MatchResult.getInstance().YellowWin = true;
-        AudioUtils.pause(bossMusic);
-        System.out.println("dang tat");
         SceneManager.signNewScene(new GameEndingScene());
     }
 
     public void deActiveIfNeeded(){
         if(this.HP <= 0 ){
+//            AudioUtils.pause();
             this.resetToggle();
             this.deActive();
         }
