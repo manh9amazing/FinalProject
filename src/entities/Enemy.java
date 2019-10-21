@@ -21,6 +21,7 @@ public class Enemy extends GameObject {
         this.aimTime = new FrameCounter(200);
         this.dir_switch = false;
 
+
     }
 
     @Override
@@ -67,6 +68,11 @@ public class Enemy extends GameObject {
 
     @Override
     public void run() {
+            if(musicOn) {
+                AudioUtils.replay(bossMusic);
+                System.out.println("XXXXXHGJGKGKGKGK");
+                musicOn = false;
+            }
             this.deActiveIfNeeded();
             if(!shootTime.expired) {
                 if (isShooting == 20) {
@@ -125,12 +131,15 @@ public class Enemy extends GameObject {
 
     @Override
     public void deActive() {
+
         super.deActive();
     }
 
     public  void deActiveIfNeeded(){
         if (!EventToggle.getInstance().StandTogether){
             this.deActive();
+            AudioUtils.pause(this.bossMusic);
+            System.out.println("dang tat");
         }
     }
 

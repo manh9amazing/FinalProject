@@ -73,7 +73,7 @@ public class Player2 extends GameObject {
     }
     @Override
     public void run() {
-//        this.deActiveIfNeeded();
+        this.deActiveIfNeeded();
         if(EventToggle.getInstance().Blessings){
             this.HP+= 500;
             this.MaxHP +=500;
@@ -225,6 +225,7 @@ public class Player2 extends GameObject {
     public void deActiveIfNeeded(){
         if(this.HP <= 0 ){
             this.deActive();
+            this.resetToggle();
         }
     }
 }

@@ -331,7 +331,10 @@ public class GameObject {
     public Vector2D position;
     public Vector2D velocity;
     public BoxCollider boxCollider;
+
     public boolean isActive;
+    public boolean musicOn;
+
     public Vector2D anchor;
     public int ExistX;
     public int ExistY;
@@ -357,8 +360,8 @@ public class GameObject {
 
     public GameObject() {
         GameObject.add(this);
-        this.Spell1ATK = 25;
-
+//        this.Spell1ATK = 25;
+        this.musicOn = true;
         this.bossMusic = AudioUtils.loadSound("assets/music/sound effects/bossMusic.wav");
         this.clipShield = AudioUtils.loadSound("assets/music/sound effects/chargeShield.wav");
         this.shield = SpriteUtils.loadImage("assets/images/players/straight/shield.png");
@@ -596,7 +599,7 @@ public class GameObject {
 //            if (!EnemySpawnerToggle.getInstance().Spawned){
 //                System.out.println("ONE TIME SPAWN");
 //            }
-            AudioUtils.loop(bossMusic,3);
+//            AudioUtils.loop(bossMusic,3);
             if (enemyFightTime.expired) {
                 AudioUtils.pause(bossMusic);
                 EventToggle.getInstance().StandTogether = false;
@@ -637,6 +640,24 @@ public class GameObject {
                 invisibleTime.run();
             }
         }
+    }
+
+    public void resetToggle(){
+        BuffToggle.getInstance().InvisibleBullet = false;
+        BuffToggle.getInstance().PoisonousBullet = false;
+        BuffToggle.getInstance().Berserk = false;
+        BuffToggle.getInstance().ArmorUP = false;
+        BuffToggle.getInstance().SupporterSummon = false;
+        BuffToggle.getInstance().Frozen = false;
+        BuffToggle.getInstance().Poisoned =false;
+        BuffToggle.getInstance().InstantHeal = false;
+        BuffToggle.getInstance().Excaliburn = false;
+        BuffToggle.getInstance().PiercingSpell = false;
+        EventToggle.getInstance().StandTogether = false;
+    }
+
+    public void turnOffMusic(){
+        AudioUtils.pause(bossMusic);
     }
 
 }

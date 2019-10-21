@@ -4,23 +4,14 @@
     <list default="true" id="0ed7e1d5-efb1-4574-8faf-8df927cd90ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/bases/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/BuffRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/BuffRunner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player1Spell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/entities/Player2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProjectGame/game/GameWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bases/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRandomizeP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/BuffRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/BuffRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/EventRandomize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRandomize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EventRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EventRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player1Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player1Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/scene/BackgroundEnding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/BackgroundEnding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/scene/GamePlayScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/scene/GamePlayScene.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -304,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571580988231</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="update: boss_music to ending error, berserk error">
+      <created>1571591625586</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1571591625586</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,14 +341,15 @@
     <MESSAGE value="update: game ver 0.9.1" />
     <MESSAGE value="update: game ver 0.9.4 (size text)" />
     <MESSAGE value="update: starting sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: starting sound" />
+    <MESSAGE value="update: boss_music to ending error, berserk error" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: boss_music to ending error, berserk error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/bases/GameObject.java</url>
-          <line>387</line>
+          <line>390</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
